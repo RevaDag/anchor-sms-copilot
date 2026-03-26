@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd prototype && npm install && npm run build",
+  "outputDirectory": "prototype/dist",
+  "installCommand": "npm install",
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}
