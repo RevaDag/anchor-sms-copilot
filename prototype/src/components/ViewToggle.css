@@ -1,0 +1,57 @@
+.view-toggle {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.vt-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.vt-tab:hover:not(.active) {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.vt-tab.active {
+  background: white;
+  color: #1e293b;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.vt-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Light variant — for white topbar on platform page */
+.view-toggle.light {
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+.view-toggle.light .vt-tab {
+  color: #9ca3af;
+}
+.view-toggle.light .vt-tab:hover:not(.active) {
+  color: #374151;
+  background: rgba(0, 0, 0, 0.04);
+}
+.view-toggle.light .vt-tab.active {
+  background: #1c2145;
+  color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}

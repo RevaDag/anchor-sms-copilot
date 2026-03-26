@@ -138,9 +138,13 @@
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 0 24px;
   flex-shrink: 0;
+}
+.ap-topbar-left {
+  display: flex;
+  align-items: center;
 }
 .ap-topbar-right {
   display: flex;

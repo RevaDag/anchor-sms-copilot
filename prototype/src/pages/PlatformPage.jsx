@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAgreement } from '../AgreementContext';
+import ViewToggle from '../components/ViewToggle';
 import './PlatformPage.css';
 
 const Icon = {
@@ -121,6 +122,9 @@ export default function PlatformPage() {
       <div className="ap-main">
         {/* Topbar */}
         <div className="ap-topbar">
+          <div className="ap-topbar-left">
+            <ViewToggle light />
+          </div>
           <div className="ap-topbar-right">
             <button className="ap-topbar-icon">{Icon.help}</button>
             <button className="ap-topbar-icon ap-bell">{Icon.bell}</button>
@@ -217,7 +221,6 @@ export default function PlatformPage() {
         </div>
       </div>
 
-      <Link to="/" className="ap-back-pill">← SMS Copilot</Link>
     </div>
   );
 }

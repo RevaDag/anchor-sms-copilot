@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useAgreement } from '../AgreementContext';
 import PhoneMock from '../components/PhoneMock';
 import ClientPhone from '../components/ClientPhone';
+import ViewToggle from '../components/ViewToggle';
 import '../App.css';
 
 export default function PrototypePage() {
@@ -20,7 +20,7 @@ export default function PrototypePage() {
           <span className="logo-tag">SMS Copilot · Prototype</span>
         </div>
         <div className="header-actions">
-          <Link to="/platform" className="btn-platform">View Platform →</Link>
+          <ViewToggle />
           <button className="btn-demo" onClick={runDemo} disabled={isLoading || demoIndex >= DEMO_SCRIPT_LENGTH}>
             {demoIndex >= DEMO_SCRIPT_LENGTH ? 'Demo Complete' : `Demo Step ${demoIndex + 1}/${DEMO_SCRIPT_LENGTH}`}
           </button>
