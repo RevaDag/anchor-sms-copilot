@@ -79,7 +79,7 @@ module.exports = async function handler(req, res) {
   } catch (err) {
     console.error(err);
     res.status(500).json({
-      sms_reply: 'Something went wrong. Try again.',
+      sms_reply: `Error: ${err.message}`,
       action: 'unknown',
       payload: {},
     });
