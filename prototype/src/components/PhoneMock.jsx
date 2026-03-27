@@ -1,7 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
-export default function PhoneMock({ bubbles, onSend, isLoading }) {
-  const [input, setInput] = useState('');
+export default function PhoneMock({ bubbles, isLoading }) {
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -9,16 +8,6 @@ export default function PhoneMock({ bubbles, onSend, isLoading }) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [bubbles]);
-
-  const handleSend = () => {
-    if (!input.trim()) return;
-    onSend(input.trim());
-    setInput('');
-  };
-
-  const handleKey = (e) => {
-    if (e.key === 'Enter') handleSend();
-  };
 
   return (
     <div className="phone-frame">
@@ -35,8 +24,7 @@ export default function PhoneMock({ bubbles, onSend, isLoading }) {
         <div className="chat-scroll" ref={scrollRef}>
           {bubbles.length === 0 && (
             <div className="chat-empty">
-              <p>Try: <em>"Draft a $4k agreement with Sarah, 50% upfront"</em></p>
-              <p>or use the <strong>Demo Step</strong> button above.</p>
+              <p>Use the shortcuts on the left to try a command.</p>
             </div>
           )}
           {bubbles.map(b => (
@@ -49,20 +37,6 @@ export default function PhoneMock({ bubbles, onSend, isLoading }) {
               <span /><span /><span />
             </div>
           )}
-        </div>
-
-        <div className="chat-input-bar">
-          <input
-            className="chat-input"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            onKeyDown={handleKey}
-            placeholder="Text Anchor..."
-            disabled={isLoading}
-          />
-          <button className="chat-send" onClick={handleSend} disabled={isLoading || !input.trim()}>
-            ↑
-          </button>
         </div>
       </div>
       <div className="phone-home-bar" />

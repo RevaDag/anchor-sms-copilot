@@ -118,7 +118,7 @@ const ACTION_GROUPS = [
 export default function PrototypePage() {
   const {
     bubbles, clientPhoneBubbles, isLoading,
-    sendMessage, sendHardcoded, reset,
+    sendHardcoded, reset,
   } = useAgreement();
 
   return (
@@ -164,7 +164,7 @@ export default function PrototypePage() {
         <div className="phones-wrap">
           <section className="panel-label-wrap">
             <p className="panel-label">Your Phone</p>
-            <PhoneMock bubbles={bubbles} onSend={sendMessage} isLoading={isLoading} />
+            <PhoneMock bubbles={bubbles} isLoading={isLoading} />
           </section>
 
           <section className="panel-label-wrap">

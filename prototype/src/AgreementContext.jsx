@@ -3,12 +3,6 @@ import { mockAgreements } from './data/mockAgreements';
 
 const AgreementContext = createContext(null);
 
-const DEMO_SCRIPT = [
-  "Draft a $4k agreement with Rachel, 50% upfront",
-  "Yes",
-  "Add $300 for extra revisions",
-];
-
 const INITIAL_CLIENT_BUBBLES = {
   'Sarah Johnson': [],
   'David Lee':     [],
@@ -17,7 +11,6 @@ const INITIAL_CLIENT_BUBBLES = {
 };
 
 export function AgreementProvider({ children }) {
-  const [messages, setMessages]         = useState([]);
   const [bubbles, setBubbles]           = useState([]);
   const [agreement, setAgreement]       = useState(null);
   const [agreements, setAgreements]     = useState(mockAgreements);
@@ -25,7 +18,6 @@ export function AgreementProvider({ children }) {
   const [clientPhoneBubbles, setClientPhoneBubbles] = useState(INITIAL_CLIENT_BUBBLES);
   const [pendingConfirm, setPendingConfirm] = useState(null);
   const [isLoading, setIsLoading]       = useState(false);
-  const [demoIndex, setDemoIndex]       = useState(0);
 
   // Keep a ref so handlePlatformAction can read current agreements without stale closure
   const agreementsRef = useRef(agreements);
@@ -190,29 +182,6 @@ export function AgreementProvider({ children }) {
 
   }, []); // setters are stable, agreementsRef is a ref — no deps needed
 
-  const sendMessage = useCallback(async (text) => {
-    if (!text.trim() || isLoading) return;
-    addBubble('user', text);
-    setIsLoading(true);
-    const newMessages = [...messages, { role: 'user', content: text }];
-    setMessages(newMessages);
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: newMessages, agreements }),
-      });
-      const data = await res.json();
-      setMessages(prev => [...prev, { role: 'assistant', content: data.sms_reply }]);
-      addBubble('bot', data.sms_reply);
-      handlePlatformAction(data.action, data.payload);
-    } catch {
-      addBubble('bot', 'Connection error. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  }, [messages, isLoading, agreements, handlePlatformAction]);
-
   const handleClientApprove = () => {
     addClientBubble('user', 'YES — looks good!');
     setTimeout(() => {
@@ -248,12 +217,6 @@ export function AgreementProvider({ children }) {
     }, 1000);
   };
 
-  const runDemo = () => {
-    if (demoIndex >= DEMO_SCRIPT.length) return;
-    sendMessage(DEMO_SCRIPT[demoIndex]);
-    setDemoIndex(i => i + 1);
-  };
-
   const sendHardcoded = (userText, ackText, botReply, action, payload) => {
     addBubble('user', userText);
     setIsLoading(true);
@@ -266,25 +229,22 @@ export function AgreementProvider({ children }) {
   };
 
   const reset = () => {
-    setMessages([]);
     setBubbles([]);
     setAgreement(null);
     setAgreements(mockAgreements);
     setClientBubbles([]);
     setClientPhoneBubbles(INITIAL_CLIENT_BUBBLES);
     setPendingConfirm(null);
-    setDemoIndex(0);
   };
 
   const hasPendingLineItem = agreement?.lineItems?.some(li => li.status === 'pending_approval');
 
   return (
     <AgreementContext.Provider value={{
-      messages, bubbles, agreement, agreements, clientBubbles, clientPhoneBubbles,
-      pendingConfirm, isLoading, demoIndex, hasPendingLineItem,
-      sendMessage, sendHardcoded, handlePlatformAction,
-      handleClientApprove, handleClientApproveLineItem, runDemo, reset,
-      DEMO_SCRIPT_LENGTH: DEMO_SCRIPT.length,
+      bubbles, agreement, agreements, clientBubbles, clientPhoneBubbles,
+      pendingConfirm, isLoading, hasPendingLineItem,
+      sendHardcoded, handlePlatformAction,
+      handleClientApprove, handleClientApproveLineItem, reset,
     }}>
       {children}
     </AgreementContext.Provider>
