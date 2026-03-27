@@ -30,15 +30,12 @@
 .ap-logo {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 20px 16px 14px;
+  padding: 18px 14px 12px;
 }
-.ap-logo-icon { flex-shrink: 0; }
-.ap-logo-word {
-  color: white;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.2px;
+.ap-logo-svg {
+  width: 112px;
+  height: auto;
+  flex-shrink: 0;
 }
 
 /* Workspace */

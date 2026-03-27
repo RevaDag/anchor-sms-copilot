@@ -126,8 +126,7 @@ export default function PrototypePage() {
       <header className="app-header">
         <div className="logo">
           <Link to="/presentation" className="btn-back-presentation">← Presentation</Link>
-          <span className="logo-anchor">⚓</span>
-          <span className="logo-text">Anchor</span>
+          <img src="/anchor-logo-color.svg" height="20" alt="Anchor" className="logo-img" />
           <span className="logo-tag">SMS Copilot · Prototype</span>
         </div>
         <div className="header-center">

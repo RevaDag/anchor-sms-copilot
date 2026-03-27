@@ -48,8 +48,7 @@ body { background: #f3f4f6; color: var(--text-primary); height: 100vh; overflow:
   font-weight: 600;
 }
 
-.logo-anchor { font-size: 20px; }
-.logo-text { color: #1a1a3e; }
+.logo-img { display: block; }
 .logo-tag {
   background: rgba(108, 71, 255, 0.08);
   color: #6c47ff;

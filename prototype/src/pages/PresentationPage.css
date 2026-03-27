@@ -56,7 +56,7 @@
   color: var(--pres-text);
   letter-spacing: -0.01em;
 }
-.pres-logo span:first-child { font-size: 20px; line-height: 1; }
+.pres-logo img { display: block; }
 
 .pres-exit {
   color: var(--pres-muted);

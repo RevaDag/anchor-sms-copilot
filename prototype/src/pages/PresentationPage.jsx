@@ -62,8 +62,7 @@ export default function PresentationPage() {
       <header className="pres-header">
         <div className="pres-header-left">
           <div className="pres-logo">
-            <span>⚓</span>
-            <span>Anchor · SMS Copilot</span>
+            <img src="/anchor-logo-color.svg" height="20" alt="Anchor SMS Copilot" />
           </div>
           <div className="pres-header-sep" aria-hidden="true" />
           <button
