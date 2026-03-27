@@ -9,7 +9,7 @@ app.use(express.json());
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-const SYSTEM_PROMPT = `You are Anchor Copilot, an AI assistant embedded in a billing platform for freelancers and small agencies.
+const BASE_SYSTEM_PROMPT = `You are Anchor Copilot, an AI assistant embedded in a billing platform for freelancers and small agencies.
 
 Your job is to interpret natural language SMS messages and translate them into structured billing actions.
 
@@ -38,11 +38,14 @@ add_line_item:
 
 send_reminder:
 {
-  "milestone_index": number  // 0-based
+  "client_name": "string or null",
+  "all_overdue": boolean,
+  "all_clients": boolean
 }
 
 mark_paid:
 {
+  "client_name": "string",
   "milestone_index": number
 }
 
@@ -61,16 +64,36 @@ Rules:
 - Keep sms_reply under 160 characters when possible.
 - Be warm but efficient. You are a copilot, not a chatbot.
 - Never ask for more info than you need. Make reasonable inferences.
-- Always confirm before creating an agreement: summarize what you understood and say "Reply YES to confirm."`;
+- Always confirm before creating an agreement: summarize what you understood and say "Reply YES to confirm."
+- CRITICAL: sms_reply is your ONLY response — there is no follow-up message. Never write an acknowledgment ("Checking now...", "On it...", "Let me look..."). Always put the complete answer directly in sms_reply.
+- For status questions (who owes money, who hasn't paid, overdue clients, etc.), use the agreements data provided to give a SPECIFIC answer with real names and amounts in a single sms_reply.`;
+
+function buildSystemPrompt(agreements) {
+  if (!agreements || agreements.length === 0) return BASE_SYSTEM_PROMPT;
+
+  const summary = agreements.map(a => {
+    const milestones = (a.milestones || []).map((m, i) =>
+      `  - Milestone ${i} (${m.label || m.index}): $${m.amount} — ${m.status}${m.due_date ? ', due ' + m.due_date : ''}`
+    ).join('\n');
+    return `Client: ${a.client_name} | Project: ${a.description} | Total: $${a.total_amount} | Status: ${a.status}\n${milestones}`;
+  }).join('\n\n');
+
+  return `${BASE_SYSTEM_PROMPT}
+
+--- CURRENT AGREEMENTS DATA ---
+${summary}
+--- END AGREEMENTS DATA ---`;
+}
 
 app.post('/api/chat', async (req, res) => {
-  const { messages } = req.body;
+  const { messages, agreements } = req.body;
+  const systemPrompt = buildSystemPrompt(agreements);
 
   try {
     const response = await client.messages.create({
       model: 'claude-sonnet-4-6',
       max_tokens: 1024,
-      system: SYSTEM_PROMPT,
+      system: systemPrompt,
       messages,
     });
 

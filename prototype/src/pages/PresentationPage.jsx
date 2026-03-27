@@ -6,11 +6,11 @@ import './PresentationPage.css';
 const INDEX_GROUPS = [
   { label: 'Intro',          slides: [0, 1, 2, 3] },
   { label: 'The Submission', slides: [4, 5] },
-  { label: 'Research',       slides: [6, 7, 8, 9, 10, 11] },
-  { label: 'Prioritization', slides: [12, 13] },
-  { label: 'Technical',      slides: [14, 15, 16, 17, 18] },
-  { label: 'Business',       slides: [19, 20, 21] },
-  { label: 'Wrap-up',        slides: [22, 23] },
+  { label: 'Research',       slides: [6, 7, 8, 9, 10, 11, 12] },
+  { label: 'Prioritization', slides: [13, 14] },
+  { label: 'Technical',      slides: [15, 16, 17, 18, 19] },
+  { label: 'Business',       slides: [20, 21, 22] },
+  { label: 'Wrap-up',        slides: [23, 24] },
 ];
 
 function getSlideLabel(slide) {
@@ -24,6 +24,7 @@ function getSlideLabel(slide) {
     case 'table':      return slide.title;
     case 'steps':      return slide.title;
     case 'two-col':    return slide.title;
+    case 'ideation':   return slide.title;
     case 'verdict':    return 'Strategic Verdict';
     case 'cta':        return 'Live Demo';
     case 'tldr':       return 'TL;DR — Summary';
@@ -143,6 +144,7 @@ function SlideContent({ slide, navigate }) {
     case 'table':      return <SlideTable      data={slide} />;
     case 'steps':      return <SlideSteps      data={slide} />;
     case 'two-col':    return <SlideTwoCol     data={slide} />;
+    case 'ideation':   return <SlideIdeation   data={slide} />;
     case 'verdict':    return <SlideVerdict    data={slide} />;
     case 'tldr':       return <SlideTldr       data={slide} />;
     case 'cta':        return <SlideCTA        data={slide} navigate={navigate} />;
@@ -343,6 +345,46 @@ function SlideTwoCol({ data }) {
             </div>
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function SlideIdeation({ data }) {
+  return (
+    <div className="pres-generic-slide pres-ideation-slide">
+      <div className="pres-eyebrow">{data.eyebrow}</div>
+      <h2 className="pres-slide-title">{data.title}</h2>
+      {data.subtitle && <p className="pres-slide-subtitle">{data.subtitle}</p>}
+      <div className="pres-ideation-grid">
+        {data.discarded.map((idea, i) => (
+          <div key={i} className="pres-ideation-card">
+            <div className="pres-ideation-card-header">
+              <span className="pres-ideation-num">{idea.num}</span>
+              <span className="pres-ideation-badge pres-ideation-badge--discarded">Discarded</span>
+            </div>
+            <div className="pres-ideation-card-title">{idea.title}</div>
+            <div className="pres-ideation-section">
+              <div className="pres-ideation-section-label">The Concept</div>
+              <p className="pres-ideation-text">{idea.concept}</p>
+            </div>
+            <div className="pres-ideation-section">
+              <div className="pres-ideation-section-label">Why Discarded</div>
+              <p className="pres-ideation-text">{idea.reason}</p>
+            </div>
+          </div>
+        ))}
+        <div className="pres-ideation-card pres-ideation-card--selected">
+          <div className="pres-ideation-card-header">
+            <span className="pres-ideation-num">{data.winner.num}</span>
+            <span className="pres-ideation-badge pres-ideation-badge--selected">✓ Selected</span>
+          </div>
+          <div className="pres-ideation-card-title">{data.winner.title}</div>
+          <div className="pres-ideation-section">
+            <div className="pres-ideation-section-label">Why It Won</div>
+            <p className="pres-ideation-text">{data.winner.body}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

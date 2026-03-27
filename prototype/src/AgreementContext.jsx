@@ -203,7 +203,7 @@ export function AgreementProvider({ children }) {
         body: JSON.stringify({ messages: newMessages, agreements }),
       });
       const data = await res.json();
-      setMessages(prev => [...prev, { role: 'assistant', content: JSON.stringify(data) }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: data.sms_reply }]);
       addBubble('bot', data.sms_reply);
       handlePlatformAction(data.action, data.payload);
     } catch {
