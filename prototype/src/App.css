@@ -1,5 +1,6 @@
 /* ── Reset & Base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { height: 100%; }
 
 :root {
   --anchor-blue: #1A56DB;
@@ -17,7 +18,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-body { background: #0F172A; color: var(--text-primary); min-height: 100vh; }
+body { background: #0F172A; color: var(--text-primary); height: 100vh; overflow: hidden; }
 
 /* ── Header ── */
 .app-header {
@@ -79,31 +80,37 @@ body { background: #0F172A; color: var(--text-primary); min-height: 100vh; }
 }
 .btn-reset:hover { background: #334155; color: white; }
 
+/* ── App Shell ── */
+.app { height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
 /* ── Layout ── */
 .app-layout {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: center;
   gap: 32px;
   padding: 32px 24px;
-  min-height: calc(100vh - 60px);
+  flex: 1;
+  overflow: hidden;
 }
 
-.panel-label-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.panel-label-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; height: 100%; }
 .panel-label { color: #64748B; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .center-panel { flex: 1; max-width: 400px; }
 
-.phones-only { justify-content: center; gap: 64px; }
+.phones-only { justify-content: center; gap: 500px; }
 
 /* ── Phone Frame ── */
 .phone-frame {
-  width: 300px;
+  aspect-ratio: 9 / 19.5;
+  max-width: 500px;
   background: var(--phone-bg);
   border-radius: 44px;
   padding: 12px;
   box-shadow: 0 0 0 1px #2D2D2F, 0 24px 64px rgba(0,0,0,0.6), inset 0 0 0 1px #3A3A3C;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .phone-notch {
@@ -121,7 +128,7 @@ body { background: #0F172A; color: var(--text-primary); min-height: 100vh; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 580px;
+  flex: 1;
 }
 
 .phone-home-bar {
