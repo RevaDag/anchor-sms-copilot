@@ -30,7 +30,7 @@ export default function PresentationPage() {
           <span>⚓</span>
           <span>Anchor · SMS Copilot</span>
         </div>
-        <Link to="/prototype" className="pres-exit" title="Launch prototype (Esc)">✕</Link>
+        <Link to="/prototype" className="pres-exit">To the prototype →</Link>
       </header>
 
       <div className="pres-progress-track">

@@ -63,11 +63,11 @@
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
-  width: 34px;
+  padding: 0 16px;
   height: 34px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  white-space: nowrap;
   border-radius: 8px;
   border: 1.5px solid var(--pres-border);
   background: var(--pres-surface);
