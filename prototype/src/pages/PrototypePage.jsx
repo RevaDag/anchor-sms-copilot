@@ -1,6 +1,6 @@
 import { useAgreement } from '../AgreementContext';
 import PhoneMock from '../components/PhoneMock';
-import ClientPhone from '../components/ClientPhone';
+import ClientPhonesGrid from '../components/ClientPhonesGrid';
 import ViewToggle from '../components/ViewToggle';
 import '../App.css';
 
@@ -54,9 +54,16 @@ const ACTION_GROUPS = [
       {
         label: "Remind all overdue clients",
         ack: "Let me find all your overdue clients and send reminders.",
-        reply: "Reminder sent to David Lee ($7,200 overdue since Feb 28). That's your only overdue client right now — you're in good shape!",
+        reply: "Reminders sent to David Lee ($7,200 overdue) and Maya Cohen ($1,900 pending). You're in good shape with everyone else!",
         action: 'send_reminder',
-        payload: { client_name: 'David Lee' },
+        payload: { all_overdue: true },
+      },
+      {
+        label: "Remind all clients",
+        ack: "Sending a gentle nudge to all your clients now.",
+        reply: "Done! Reminders sent to all 4 clients. David and Maya get payment reminders; Sarah and James get milestone updates.",
+        action: 'send_reminder',
+        payload: { all_clients: true },
       },
     ],
   },
@@ -109,9 +116,9 @@ const ACTION_GROUPS = [
 
 export default function PrototypePage() {
   const {
-    bubbles, clientBubbles, agreement, hasPendingLineItem, isLoading,
+    bubbles, clientPhoneBubbles, isLoading,
     demoIndex, DEMO_SCRIPT_LENGTH,
-    sendMessage, sendHardcoded, handleClientApprove, handleClientApproveLineItem, runDemo, reset,
+    sendMessage, sendHardcoded, runDemo, reset,
   } = useAgreement();
 
   return (
@@ -163,14 +170,8 @@ export default function PrototypePage() {
           </section>
 
           <section className="panel-label-wrap">
-            <p className="panel-label">Client Phone</p>
-            <ClientPhone
-              bubbles={clientBubbles}
-              agreement={agreement}
-              onApprove={handleClientApprove}
-              onApproveLineItem={handleClientApproveLineItem}
-              hasPendingLineItem={hasPendingLineItem}
-            />
+            <p className="panel-label">Your Clients</p>
+            <ClientPhonesGrid clientPhoneBubbles={clientPhoneBubbles} />
           </section>
         </div>
       </main>
