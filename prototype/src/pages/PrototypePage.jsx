@@ -122,8 +122,10 @@ export default function PrototypePage() {
           <span className="logo-text">Anchor</span>
           <span className="logo-tag">SMS Copilot · Prototype</span>
         </div>
-        <div className="header-actions">
+        <div className="header-center">
           <ViewToggle />
+        </div>
+        <div className="header-actions">
           <button className="btn-demo" onClick={runDemo} disabled={isLoading || demoIndex >= DEMO_SCRIPT_LENGTH}>
             {demoIndex >= DEMO_SCRIPT_LENGTH ? 'Demo Complete' : `Demo Step ${demoIndex + 1}/${DEMO_SCRIPT_LENGTH}`}
           </button>

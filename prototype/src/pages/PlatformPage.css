@@ -8,16 +8,16 @@
   display: flex;
   height: 100vh;
   overflow: hidden;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 14px;
-  color: #111827;
+  color: #1a1a3e;
   background: #f3f4f6;
 }
 
 /* ── SIDEBAR ── */
 .ap-sidebar {
-  width: 196px;
-  background: #1c2145;
+  width: 155px;
+  background: #1e2a4a;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -47,16 +47,16 @@
   align-items: center;
   gap: 9px;
   padding: 8px 14px 12px;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.88);
   font-size: 13px;
   cursor: pointer;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   margin-bottom: 6px;
 }
 .ap-ws-icon {
   width: 22px;
   height: 22px;
-  background: #4f46e5;
+  background: #6c47ff;
   color: white;
   border-radius: 5px;
   display: flex;
@@ -77,20 +77,20 @@
   gap: 9px;
   padding: 7px 10px;
   border-radius: 6px;
-  color: rgba(255,255,255,0.58);
+  color: rgba(255,255,255,0.72);
   font-size: 13px;
   cursor: pointer;
   transition: background 0.12s, color 0.12s;
   user-select: none;
 }
 .ap-nav-item:hover {
-  background: rgba(255,255,255,0.07);
-  color: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.09);
+  color: rgba(255,255,255,0.95);
 }
 .ap-nav-item.active {
-  background: rgba(255,255,255,0.11);
+  background: #2d3a5e;
   color: white;
-  font-weight: 500;
+  font-weight: 600;
 }
 .ap-nav-icon { display: flex; align-items: center; flex-shrink: 0; }
 .ap-nav-label { flex: 1; }
@@ -141,14 +141,21 @@
   justify-content: space-between;
   padding: 0 24px;
   flex-shrink: 0;
+  position: relative;
 }
 .ap-topbar-left {
-  display: flex;
-  align-items: center;
+  flex: 1;
+}
+.ap-topbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .ap-topbar-right {
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 8px;
 }
 .ap-topbar-icon {
@@ -181,7 +188,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #6366f1;
+  background: #6c47ff;
   color: white;
   display: flex;
   align-items: center;
@@ -208,9 +215,10 @@
   margin-bottom: 22px;
 }
 .ap-page-title {
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 600;
-  color: #111827;
+  color: #1a1a3e;
+  font-family: 'IBM Plex Serif', serif;
 }
 .ap-page-actions {
   display: flex;
@@ -224,15 +232,15 @@
   padding: 0 14px;
   height: 36px;
   background: white;
-  color: #374151;
-  border: 1.5px solid #d1d5db;
+  color: #6c47ff;
+  border: 1.5px solid #6c47ff;
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.12s;
 }
-.ap-btn-secondary:hover { background: #f9fafb; }
+.ap-btn-secondary:hover { background: #f5f3ff; }
 
 .ap-btn-primary-group {
   display: flex;
@@ -243,7 +251,7 @@
 .ap-btn-primary {
   padding: 0 16px;
   height: 36px;
-  background: #6366f1;
+  background: #6c47ff;
   color: white;
   border: none;
   font-size: 13px;
@@ -252,7 +260,7 @@
   transition: background 0.12s;
   white-space: nowrap;
 }
-.ap-btn-primary:hover { background: #4f46e5; }
+.ap-btn-primary:hover { background: #5a38e8; }
 .ap-btn-primary-arrow {
   padding: 0 10px;
   border-left: 1px solid rgba(255,255,255,0.25);
@@ -314,7 +322,7 @@
   height: 34px;
   background: transparent;
   border: none;
-  color: #6366f1;
+  color: #6c47ff;
   font-size: 13px;
   cursor: pointer;
   font-weight: 500;
@@ -339,7 +347,7 @@
 /* Count */
 .ap-count {
   font-size: 13px;
-  color: #6b7280;
+  color: #4b5563;
   margin-bottom: 8px;
 }
 
@@ -361,8 +369,8 @@
   padding: 10px 16px;
   text-align: left;
   font-size: 12px;
-  font-weight: 500;
-  color: #9ca3af;
+  font-weight: 600;
+  color: #6b7280;
   white-space: nowrap;
   user-select: none;
 }
@@ -391,23 +399,23 @@
 }
 
 .ap-company {
-  color: #6366f1;
+  color: #6c47ff;
   font-weight: 500;
   cursor: pointer;
 }
 .ap-company:hover { text-decoration: underline; }
-.ap-sub { color: #9ca3af; font-size: 12px; margin-top: 2px; }
+.ap-sub { color: #6b7280; font-size: 12px; margin-top: 2px; }
 
 .ap-status { font-size: 12px; font-weight: 500; }
 .ap-status-active    { color: #059669; }
 .ap-status-pending   { color: #d97706; }
 .ap-status-overdue   { color: #dc2626; }
 .ap-status-draft     { color: #6b7280; }
-.ap-status-completed { color: #6366f1; }
+.ap-status-completed { color: #6c47ff; }
 
 .ap-amount { font-weight: 600; color: #111827; font-size: 13px; }
 
-.ap-not-set { color: #ef4444; font-size: 13px; }
+.ap-not-set { color: #f59e0b; font-size: 13px; }
 
 .ap-row-more {
   background: transparent;
@@ -431,7 +439,7 @@
 .ap-goto-copilot {
   display: inline-block;
   margin-top: 14px;
-  color: #6366f1;
+  color: #6c47ff;
   text-decoration: none;
   font-weight: 500;
   font-size: 13px;
@@ -443,7 +451,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #1c2145;
+  background: #1e2a4a;
   color: rgba(255,255,255,0.9);
   text-decoration: none;
   padding: 8px 18px;

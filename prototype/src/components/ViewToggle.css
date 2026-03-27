@@ -14,16 +14,16 @@
   gap: 6px;
   padding: 6px 14px;
   border-radius: 7px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.72);
   text-decoration: none;
   transition: all 0.15s;
   white-space: nowrap;
 }
 
 .vt-tab:hover:not(.active) {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   background: rgba(255, 255, 255, 0.06);
 }
 
@@ -44,14 +44,14 @@
   border-color: #e5e7eb;
 }
 .view-toggle.light .vt-tab {
-  color: #9ca3af;
+  color: #6b7280;
 }
 .view-toggle.light .vt-tab:hover:not(.active) {
   color: #374151;
   background: rgba(0, 0, 0, 0.04);
 }
 .view-toggle.light .vt-tab.active {
-  background: #1c2145;
+  background: #1e2a4a;
   color: white;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }

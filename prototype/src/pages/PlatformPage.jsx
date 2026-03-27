@@ -62,8 +62,8 @@ export default function PlatformPage() {
             <svg viewBox="0 0 36 36" width="30" height="30">
               <defs>
                 <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#22d3ee"/>
-                  <stop offset="100%" stopColor="#818cf8"/>
+                  <stop offset="0%" stopColor="#643CFF"/>
+                  <stop offset="100%" stopColor="#9B6FFF"/>
                 </linearGradient>
               </defs>
               <circle cx="18" cy="18" r="18" fill="url(#lg)"/>
@@ -86,7 +86,6 @@ export default function PlatformPage() {
         <nav className="ap-nav">
           {NAV.map(item => (
             <div key={item.key} className={`ap-nav-item${item.active ? ' active' : ''}`}>
-              <span className="ap-nav-icon">{Icon[item.key]}</span>
               <span className="ap-nav-label">{item.label}</span>
               {item.arrow && <span className="ap-nav-arrow">{Icon.chevron}</span>}
             </div>
@@ -104,7 +103,8 @@ export default function PlatformPage() {
       <div className="ap-main">
         {/* Topbar */}
         <div className="ap-topbar">
-          <div className="ap-topbar-left">
+          <div className="ap-topbar-left" />
+          <div className="ap-topbar-center">
             <ViewToggle light />
           </div>
           <div className="ap-topbar-right">
