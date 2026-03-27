@@ -399,9 +399,13 @@
 .ap-sub { color: #9ca3af; font-size: 12px; margin-top: 2px; }
 
 .ap-status { font-size: 12px; font-weight: 500; }
-.ap-status-active { color: #059669; }
-.ap-status-pending { color: #d97706; }
-.ap-status-draft { color: #6b7280; }
+.ap-status-active    { color: #059669; }
+.ap-status-pending   { color: #d97706; }
+.ap-status-overdue   { color: #dc2626; }
+.ap-status-draft     { color: #6b7280; }
+.ap-status-completed { color: #6366f1; }
+
+.ap-amount { font-weight: 600; color: #111827; font-size: 13px; }
 
 .ap-not-set { color: #ef4444; font-size: 13px; }
 

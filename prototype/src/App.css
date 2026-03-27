@@ -87,30 +87,89 @@ body { background: #0F172A; color: var(--text-primary); height: 100vh; overflow:
 .app-layout {
   display: flex;
   align-items: stretch;
-  justify-content: center;
-  gap: 32px;
-  padding: 32px 24px;
+  gap: 0;
   flex: 1;
   overflow: hidden;
 }
 
-.panel-label-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; height: 100%; }
+.phones-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  padding: 32px 40px;
+  overflow: hidden;
+}
+
+.panel-label-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .panel-label { color: #64748B; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .center-panel { flex: 1; max-width: 400px; }
 
-.phones-only { justify-content: center; gap: 500px; }
+/* ── Action Sidebar ── */
+.action-sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px 20px;
+  border-right: 1px solid #1E293B;
+}
+
+.action-sidebar-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #475569;
+  margin-bottom: -8px;
+}
+
+.action-group { display: flex; flex-direction: column; gap: 5px; }
+
+.action-group-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #334155;
+  margin-bottom: 2px;
+}
+
+.action-btn {
+  background: #1E293B;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #94A3B8;
+  font-size: 12px;
+  padding: 7px 11px;
+  text-align: left;
+  cursor: pointer;
+  line-height: 1.35;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.action-btn:hover:not(:disabled) {
+  background: #273548;
+  border-color: #4B6A93;
+  color: #CBD5E1;
+}
+.action-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
 /* ── Phone Frame ── */
 .phone-frame {
+  /* height drives the size; aspect-ratio derives the width from it */
+  height: calc(100vh - 64px - 64px - 30px); /* viewport - header - wrap padding - label */
+  max-height: calc(100vh - 158px);
   aspect-ratio: 9 / 19.5;
-  max-width: 500px;
   background: var(--phone-bg);
   border-radius: 44px;
   padding: 12px;
   box-shadow: 0 0 0 1px #2D2D2F, 0 24px 64px rgba(0,0,0,0.6), inset 0 0 0 1px #3A3A3C;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex-shrink: 0;
 }
 
 .phone-notch {
@@ -128,7 +187,7 @@ body { background: #0F172A; color: var(--text-primary); height: 100vh; overflow:
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1; /* fills remaining height inside phone-frame after notch + home bar */
 }
 
 .phone-home-bar {

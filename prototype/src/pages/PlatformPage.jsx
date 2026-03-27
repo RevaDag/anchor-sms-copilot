@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useAgreement } from '../AgreementContext';
 import ViewToggle from '../components/ViewToggle';
 import './PlatformPage.css';
@@ -44,32 +43,15 @@ function fmt(date) {
   return new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
-export default function PlatformPage() {
-  const { agreement, pendingConfirm } = useAgreement();
-  const today = fmt(new Date());
+function lastActivity(agr) {
+  if (agr.last_reminded) return `Reminded ${fmt(agr.last_reminded)}`;
+  const paid = [...(agr.milestones || [])].reverse().find(m => m.status === 'paid');
+  if (paid?.due_date) return fmt(paid.due_date);
+  return '—';
+}
 
-  const rows = [];
-  if (agreement) {
-    rows.push({
-      id: 1,
-      company: agreement.client_name || 'Client',
-      status: 'Active',
-      assignee: 'Yam Cohen',
-      effectiveDate: today,
-      paymentMethod: null,
-      lastBilled: agreement.milestones?.some(m => m.status === 'paid') ? today : null,
-    });
-  } else if (pendingConfirm) {
-    rows.push({
-      id: 1,
-      company: pendingConfirm.client_name || 'Client',
-      status: 'Pending',
-      assignee: 'Yam Cohen',
-      effectiveDate: today,
-      paymentMethod: null,
-      lastBilled: null,
-    });
-  }
+export default function PlatformPage() {
+  const { agreements } = useAgreement();
 
   return (
     <div className="ap-root">
@@ -164,7 +146,7 @@ export default function PlatformPage() {
             </button>
           </div>
 
-          <div className="ap-count">{rows.length} agreement{rows.length !== 1 ? 's' : ''}</div>
+          <div className="ap-count">{agreements.length} agreement{agreements.length !== 1 ? 's' : ''}</div>
 
           {/* Table */}
           <div className="ap-table-wrap">
@@ -172,49 +154,39 @@ export default function PlatformPage() {
               <thead>
                 <tr>
                   <th className="th-check"><input type="checkbox" /></th>
-                  <th>Company name <span className="sort">↕</span></th>
+                  <th>Client name <span className="sort">↕</span></th>
+                  <th>Amount <span className="sort">↕</span></th>
                   <th>Status <span className="sort">↕</span></th>
                   <th>Assignee <span className="sort">↕</span></th>
                   <th className="sort-active">Effective date <span className="sort">↓</span></th>
                   <th>Payment method <span className="sort">↕</span></th>
-                  <th>Last Billed <span className="sort">↕</span></th>
+                  <th>Last activity <span className="sort">↕</span></th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                {rows.length === 0 ? (
-                  <tr>
-                    <td colSpan={8} className="ap-empty-cell">
-                      <div className="ap-empty">
-                        <p style={{ marginBottom: 4, color: '#374151', fontWeight: 500 }}>No agreements yet</p>
-                        <p style={{ fontSize: 12 }}>Use the SMS Copilot to draft one.</p>
-                        <Link to="/" className="ap-goto-copilot">← Go to SMS Copilot</Link>
-                      </div>
+                {agreements.map(agr => (
+                  <tr key={agr.id} className="ap-row">
+                    <td className="td-check"><input type="checkbox" /></td>
+                    <td>
+                      <div className="ap-company">{agr.client_name}</div>
+                      <div className="ap-sub">{agr.description}</div>
                     </td>
+                    <td className="ap-amount">${agr.total_amount.toLocaleString()}</td>
+                    <td>
+                      <span className={`ap-status ap-status-${agr.status}`}>
+                        {agr.status.charAt(0).toUpperCase() + agr.status.slice(1)}
+                      </span>
+                    </td>
+                    <td>Yam Cohen</td>
+                    <td>{fmt(agr.effective_date)}</td>
+                    <td className={agr.payment_method ? '' : 'ap-not-set'}>
+                      {agr.payment_method || 'Not set'}
+                    </td>
+                    <td>{lastActivity(agr)}</td>
+                    <td><button className="ap-row-more">{Icon.more}</button></td>
                   </tr>
-                ) : (
-                  rows.map(row => (
-                    <tr key={row.id} className="ap-row">
-                      <td className="td-check"><input type="checkbox" /></td>
-                      <td>
-                        <div className="ap-company">{row.company}</div>
-                        <div className="ap-sub">Untitled agreement</div>
-                      </td>
-                      <td>
-                        <span className={`ap-status ap-status-${row.status.toLowerCase()}`}>
-                          {row.status}
-                        </span>
-                      </td>
-                      <td>{row.assignee}</td>
-                      <td>{row.effectiveDate}</td>
-                      <td className={row.paymentMethod ? '' : 'ap-not-set'}>
-                        {row.paymentMethod || 'Not set'}
-                      </td>
-                      <td>{row.lastBilled || '—'}</td>
-                      <td><button className="ap-row-more">{Icon.more}</button></td>
-                    </tr>
-                  ))
-                )}
+                ))}
               </tbody>
             </table>
           </div>
