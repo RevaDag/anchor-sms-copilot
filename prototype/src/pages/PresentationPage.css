@@ -934,54 +934,6 @@
 }
 .pres-agent-link:hover { color: var(--pres-blue); }
 
-/* ══════════════════════════════════════
-   SECTION DIVIDER
-══════════════════════════════════════ */
-.pres-section-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 16px;
-  background: var(--pres-dark-bg);
-  background-image: radial-gradient(circle, rgba(20, 50, 255, 0.12) 1px, transparent 1px);
-  background-size: 30px 30px;
-  position: absolute;
-  inset: 0;
-  padding: 40px 72px;
-}
-.pres-section-number {
-  font-size: clamp(100px, 14vw, 180px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.06em;
-  color: var(--pres-blue);
-  opacity: 0.18;
-  position: absolute;
-  user-select: none;
-  animation: presEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-.pres-section-title {
-  font-size: clamp(40px, 5.5vw, 72px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  color: #FFFFFF;
-  margin: 0;
-  position: relative;
-  animation: presEnter 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 80ms;
-}
-.pres-section-subtitle {
-  font-size: clamp(16px, 1.5vw, 20px);
-  color: rgba(255,255,255,0.45);
-  font-weight: 400;
-  margin: 0;
-  position: relative;
-  animation: presEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 180ms;
-}
 
 /* ══════════════════════════════════════
    OVERVIEW SLIDE

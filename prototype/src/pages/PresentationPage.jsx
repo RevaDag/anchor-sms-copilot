@@ -100,7 +100,6 @@ function SlideSection({ data }) {
   return (
     <div className="pres-section-slide">
       <div className="pres-section-bg-num" aria-hidden="true">{data.number}</div>
-      <div className="pres-section-label-tag">Section {data.number}</div>
       <div className="pres-section-divider" />
       <h2 className="pres-section-title">{data.title}</h2>
       <p className="pres-section-subtitle">{data.subtitle}</p>
