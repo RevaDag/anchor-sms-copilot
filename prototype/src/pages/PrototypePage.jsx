@@ -1,4 +1,5 @@
 import { useAgreement } from '../AgreementContext';
+import { Link } from 'react-router-dom';
 import PhoneMock from '../components/PhoneMock';
 import ClientPhonesGrid from '../components/ClientPhonesGrid';
 import ViewToggle from '../components/ViewToggle';
@@ -117,14 +118,14 @@ const ACTION_GROUPS = [
 export default function PrototypePage() {
   const {
     bubbles, clientPhoneBubbles, isLoading,
-    demoIndex, DEMO_SCRIPT_LENGTH,
-    sendMessage, sendHardcoded, runDemo, reset,
+    sendMessage, sendHardcoded, reset,
   } = useAgreement();
 
   return (
     <div className="app">
       <header className="app-header">
         <div className="logo">
+          <Link to="/presentation" className="btn-back-presentation">← Presentation</Link>
           <span className="logo-anchor">⚓</span>
           <span className="logo-text">Anchor</span>
           <span className="logo-tag">SMS Copilot · Prototype</span>
@@ -133,9 +134,6 @@ export default function PrototypePage() {
           <ViewToggle />
         </div>
         <div className="header-actions">
-          <button className="btn-demo" onClick={runDemo} disabled={isLoading || demoIndex >= DEMO_SCRIPT_LENGTH}>
-            {demoIndex >= DEMO_SCRIPT_LENGTH ? 'Demo Complete' : `Demo Step ${demoIndex + 1}/${DEMO_SCRIPT_LENGTH}`}
-          </button>
           <button className="btn-reset" onClick={reset}>Reset</button>
         </div>
       </header>

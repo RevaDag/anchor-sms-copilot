@@ -664,3 +664,19 @@ body { background: #0F172A; color: var(--text-primary); height: 100vh; overflow:
   align-self: flex-end;
   border-bottom-right-radius: 3px;
 }
+
+.btn-back-presentation {
+  color: #64748B;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.btn-back-presentation:hover {
+  color: #94A3B8;
+  border-color: #475569;
+}

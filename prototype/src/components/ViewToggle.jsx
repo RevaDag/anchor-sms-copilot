@@ -6,7 +6,7 @@ export default function ViewToggle({ light = false }) {
 
   return (
     <div className={`view-toggle${light ? ' light' : ''}`}>
-      <Link to="/" className={`vt-tab${pathname === '/' ? ' active' : ''}`}>
+      <Link to="/prototype" className={`vt-tab${pathname === '/prototype' ? ' active' : ''}`}>
         <span className="vt-icon">📱</span>
         SMS Copilot
       </Link>
