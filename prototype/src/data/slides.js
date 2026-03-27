@@ -93,7 +93,23 @@ export const SLIDES = [
     ],
   },
 
-  // 5. The Problem
+  // 5. Section divider — Intro → Submission
+  {
+    type: 'section',
+    number: '02',
+    title: 'The Submission',
+    subtitle: 'From problem to product — the full thinking',
+  },
+
+  // 6. Overview
+  {
+    type: 'overview',
+    eyebrow: 'Overview',
+    context: 'Anchor is a billing and payments platform designed to help small businesses and freelancers manage workflows and get paid faster. However, even with great tools, solo freelancers and small agencies face significant emotional and administrative hurdles before a payment is even initiated.',
+    proposal: 'The Anchor SMS Copilot is an AI-powered interface that removes this friction. It allows users to draft, amend, and send agreements using natural language via standard text messaging, moving the billing process from a "desk chore" to a "real-time conversation."',
+  },
+
+  // 7. The Problem
   {
     type: 'grid',
     eyebrow: 'The Problem',

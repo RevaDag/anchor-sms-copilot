@@ -72,6 +72,8 @@ function SlideContent({ slide, navigate }) {
     case 'title':      return <SlideTitle      data={slide} />;
     case 'assignment': return <SlideAssignment data={slide} />;
     case 'team':       return <SlideTeam       data={slide} />;
+    case 'section':    return <SlideSection    data={slide} />;
+    case 'overview':   return <SlideOverview   data={slide} />;
     case 'grid':       return <SlideGrid       data={slide} />;
     case 'table':      return <SlideTable      data={slide} />;
     case 'steps':      return <SlideSteps      data={slide} />;
@@ -90,6 +92,36 @@ function SlideTitle({ data }) {
       <p className="pres-title-subline">{data.subline}</p>
       <div className="pres-title-divider" />
       <div className="pres-title-hint">Press → or click the arrow to begin</div>
+    </div>
+  );
+}
+
+function SlideSection({ data }) {
+  return (
+    <div className="pres-section-slide">
+      <div className="pres-section-bg-num" aria-hidden="true">{data.number}</div>
+      <div className="pres-section-label-tag">Section {data.number}</div>
+      <div className="pres-section-divider" />
+      <h2 className="pres-section-title">{data.title}</h2>
+      <p className="pres-section-subtitle">{data.subtitle}</p>
+    </div>
+  );
+}
+
+function SlideOverview({ data }) {
+  return (
+    <div className="pres-generic-slide">
+      <div className="pres-eyebrow">{data.eyebrow}</div>
+      <div className="pres-overview-blocks">
+        <div className="pres-overview-block pres-overview-context">
+          <div className="pres-overview-block-label">Context</div>
+          <p className="pres-overview-text">{data.context}</p>
+        </div>
+        <div className="pres-overview-block pres-overview-proposal">
+          <div className="pres-overview-block-label">The Proposal</div>
+          <p className="pres-overview-text">{data.proposal}</p>
+        </div>
+      </div>
     </div>
   );
 }
