@@ -3,10 +3,40 @@ import { useNavigate, Link } from 'react-router-dom';
 import { SLIDES } from '../data/slides';
 import './PresentationPage.css';
 
+const INDEX_GROUPS = [
+  { label: 'Intro',          slides: [0, 1, 2, 3] },
+  { label: 'The Submission', slides: [4, 5] },
+  { label: 'Research',       slides: [6, 7, 8, 9, 10, 11] },
+  { label: 'Prioritization', slides: [12, 13] },
+  { label: 'Technical',      slides: [14, 15, 16, 17, 18] },
+  { label: 'Business',       slides: [19, 20, 21] },
+  { label: 'Wrap-up',        slides: [22, 23] },
+];
+
+function getSlideLabel(slide) {
+  switch (slide.type) {
+    case 'title':      return slide.headline;
+    case 'assignment': return 'The Assignment';
+    case 'team':       return slide.title;
+    case 'section':    return `§ ${slide.title}`;
+    case 'overview':   return 'Overview';
+    case 'grid':       return slide.title;
+    case 'table':      return slide.title;
+    case 'steps':      return slide.title;
+    case 'two-col':    return slide.title;
+    case 'verdict':    return 'Strategic Verdict';
+    case 'cta':        return 'Live Demo';
+    case 'tldr':       return 'TL;DR — Summary';
+    default:           return '—';
+  }
+}
+
 export default function PresentationPage() {
   const [current, setCurrent] = useState(0);
+  const [showIndex, setShowIndex] = useState(false);
   const navigate = useNavigate();
   const total = SLIDES.length;
+  const tldrIdx = SLIDES.findIndex(s => s.type === 'tldr');
 
   const prev = useCallback(() => setCurrent(c => Math.max(0, c - 1)), []);
   const next = useCallback(() => setCurrent(c => Math.min(total - 1, c + 1)), [total]);
@@ -15,20 +45,40 @@ export default function PresentationPage() {
     const handler = (e) => {
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
       if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prev();
-      if (e.key === 'Escape') navigate('/prototype');
+      if (e.key === 'Escape') {
+        if (showIndex) setShowIndex(false);
+        else navigate('/prototype');
+      }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [prev, next, navigate]);
+  }, [prev, next, navigate, showIndex]);
 
   const progress = (current / (total - 1)) * 100;
 
   return (
     <div className="pres-root">
       <header className="pres-header">
-        <div className="pres-logo">
-          <span>⚓</span>
-          <span>Anchor · SMS Copilot</span>
+        <div className="pres-header-left">
+          <div className="pres-logo">
+            <span>⚓</span>
+            <span>Anchor · SMS Copilot</span>
+          </div>
+          <div className="pres-header-sep" aria-hidden="true" />
+          <button
+            className="pres-header-btn pres-tldr-btn"
+            onClick={() => setCurrent(tldrIdx)}
+            title="Jump to summary"
+          >
+            TL;DR
+          </button>
+          <button
+            className="pres-header-btn pres-index-btn"
+            onClick={() => setShowIndex(true)}
+            title="Open slide index"
+          >
+            ≡ Index
+          </button>
         </div>
         <Link to="/prototype" className="pres-exit">To the prototype →</Link>
       </header>
@@ -53,6 +103,12 @@ export default function PresentationPage() {
 
       <div className="pres-counter">{current + 1} / {total}</div>
 
+      {current < total - 1 && (
+        <div className="pres-next-hint">
+          Next → {getSlideLabel(SLIDES[current + 1])}
+        </div>
+      )}
+
       <div className="pres-dots">
         {SLIDES.map((_, i) => (
           <button
@@ -63,6 +119,15 @@ export default function PresentationPage() {
           />
         ))}
       </div>
+
+      {showIndex && (
+        <SlideIndexPanel
+          slides={SLIDES}
+          current={current}
+          onNavigate={setCurrent}
+          onClose={() => setShowIndex(false)}
+        />
+      )}
     </div>
   );
 }
@@ -79,6 +144,7 @@ function SlideContent({ slide, navigate }) {
     case 'steps':      return <SlideSteps      data={slide} />;
     case 'two-col':    return <SlideTwoCol     data={slide} />;
     case 'verdict':    return <SlideVerdict    data={slide} />;
+    case 'tldr':       return <SlideTldr       data={slide} />;
     case 'cta':        return <SlideCTA        data={slide} navigate={navigate} />;
     default:           return null;
   }
@@ -292,6 +358,23 @@ function SlideVerdict({ data }) {
   );
 }
 
+function SlideTldr({ data }) {
+  return (
+    <div className="pres-generic-slide">
+      <div className="pres-eyebrow">{data.eyebrow}</div>
+      <h2 className="pres-slide-title">{data.headline}</h2>
+      <div className="pres-tldr-grid">
+        {data.items.map((item, i) => (
+          <div key={i} className="pres-tldr-item">
+            <div className="pres-tldr-label">{item.label}</div>
+            <p className="pres-tldr-body">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function SlideCTA({ data, navigate }) {
   return (
     <div className="pres-cta-slide">
@@ -301,6 +384,36 @@ function SlideCTA({ data, navigate }) {
       <button className="pres-cta-btn" onClick={() => navigate('/prototype')}>
         {data.buttonLabel}
       </button>
+    </div>
+  );
+}
+
+function SlideIndexPanel({ slides, current, onNavigate, onClose }) {
+  return (
+    <div className="pres-index-overlay" onClick={onClose}>
+      <div className="pres-index-panel" onClick={e => e.stopPropagation()}>
+        <div className="pres-index-header">
+          <span className="pres-index-title">All Slides</span>
+          <button className="pres-index-close" onClick={onClose} aria-label="Close index">✕</button>
+        </div>
+        <div className="pres-index-body">
+          {INDEX_GROUPS.map(group => (
+            <div key={group.label} className="pres-index-group">
+              <div className="pres-index-group-label">{group.label}</div>
+              {group.slides.map(i => (
+                <button
+                  key={i}
+                  className={`pres-index-item${i === current ? ' active' : ''}`}
+                  onClick={() => { onNavigate(i); onClose(); }}
+                >
+                  <span className="pres-index-num">{i + 1}</span>
+                  <span className="pres-index-slide-label">{getSlideLabel(slides[i])}</span>
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

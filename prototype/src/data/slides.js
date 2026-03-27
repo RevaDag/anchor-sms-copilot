@@ -467,7 +467,40 @@ export const SLIDES = [
     },
   },
 
-  // 18. CTA
+  // 23. TL;DR
+  {
+    type: 'tldr',
+    eyebrow: 'The Short Version',
+    headline: 'Everything in 30 seconds',
+    items: [
+      {
+        label: '01 · The Problem',
+        body: 'Freelancers lose time and money chasing payments. Even with billing tools, they still write "just checking in" emails, manually log scope changes, and avoid awkward money conversations.',
+      },
+      {
+        label: '02 · The Proposal',
+        body: 'Text Anchor to draft a $4k agreement, add a scope-creep line item, or fire a payment reminder. The AI handles it in seconds — no dashboard, no login, no friction.',
+      },
+      {
+        label: '03 · Why Anchor Wins',
+        body: 'Any competitor can build a chat interface. What they can\'t replicate is Anchor\'s milestone enforcement, legally binding agreements, and payment rails. The Copilot is just the new front door to that existing engine.',
+      },
+      {
+        label: '04 · What Ships',
+        body: 'P0: SMS-to-checkout standardization (RICE 18.0). P1: Automated milestone enforcement. Four live user flows on a 6-action AI backend.',
+      },
+      {
+        label: '05 · Business Case',
+        body: '$12–$29/mo add-on tier. One recovered late payment covers 25 years of Starter. At 5,000 Pro users: $1.74M ARR stacked on top of existing transaction revenue.',
+      },
+      {
+        label: '06 · See It Live',
+        body: 'All four flows are live in the prototype — draft agreement, scope capture, reminder, portfolio status — powered by a real AI backend in the browser.',
+      },
+    ],
+  },
+
+  // 24. CTA
   {
     type: 'cta',
     eyebrow: 'Live Prototype',

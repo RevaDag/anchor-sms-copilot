@@ -131,7 +131,7 @@ export default function PrototypePage() {
           <span className="logo-tag">SMS Copilot · Prototype</span>
         </div>
         <div className="header-center">
-          <ViewToggle />
+          <ViewToggle light />
         </div>
         <div className="header-actions">
           <button className="btn-reset" onClick={reset}>Reset</button>

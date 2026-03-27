@@ -59,10 +59,8 @@ export default function PlatformPanel({ agreement, pendingConfirm }) {
               <div key={m.index} className={`milestone-row milestone-${m.status}`}>
                 <span className="ms-label">{m.label}</span>
                 <span className="ms-amount">${m.amount.toLocaleString()}</span>
-                <span className="ms-status">
-                  {m.status === 'paid' && '✅'}
-                  {m.status === 'pending' && '⏳'}
-                  {m.status === 'locked' && '🔒'}
+                <span className={`ms-badge ms-badge-${m.status}`}>
+                  {m.status === 'paid' ? 'Paid' : m.status === 'pending' ? 'Due' : 'Locked'}
                 </span>
               </div>
             ))}
@@ -75,8 +73,8 @@ export default function PlatformPanel({ agreement, pendingConfirm }) {
                 <div key={li.id} className={`line-item line-item-${li.status}`}>
                   <span className="li-desc">{li.description}</span>
                   <span className="li-amount">${li.amount}</span>
-                  <span className="li-status">
-                    {li.status === 'approved' ? '✅' : '⏳ Pending'}
+                  <span className={`ms-badge ms-badge-${li.status === 'approved' ? 'paid' : 'pending'}`}>
+                    {li.status === 'approved' ? 'Done' : 'Pending'}
                   </span>
                 </div>
               ))}
