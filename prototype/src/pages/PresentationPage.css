@@ -1260,42 +1260,66 @@
 /* ══════════════════════════════════════
    TL;DR SLIDE
 ══════════════════════════════════════ */
-.pres-tldr-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+.pres-tldr-slide { gap: 10px; }
+
+.pres-tldr-list {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 1100px;
-  margin-top: 20px;
+  max-width: 1000px;
+  margin-top: 4px;
+  border: 1px solid var(--pres-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
 }
-.pres-tldr-item {
+
+.pres-tldr-row {
+  display: grid;
+  grid-template-columns: 44px 160px 1fr;
+  align-items: center;
+  gap: 0;
+  padding: 0;
   background: var(--pres-surface);
-  border: 1.5px solid var(--pres-border);
-  border-radius: 12px;
-  padding: 18px 20px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-  animation: presEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  border-bottom: 1px solid var(--pres-border);
+  animation: presEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: background 0.15s;
 }
-.pres-tldr-item:nth-child(1) { animation-delay: 160ms; }
-.pres-tldr-item:nth-child(2) { animation-delay: 220ms; }
-.pres-tldr-item:nth-child(3) { animation-delay: 280ms; }
-.pres-tldr-item:nth-child(4) { animation-delay: 340ms; }
-.pres-tldr-item:nth-child(5) { animation-delay: 400ms; }
-.pres-tldr-item:nth-child(6) { animation-delay: 460ms; }
+.pres-tldr-row:last-child { border-bottom: none; }
+.pres-tldr-row:hover { background: rgba(20, 50, 255, 0.025); }
+
+.pres-tldr-emoji {
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0 16px;
+  flex-shrink: 0;
+}
+
 .pres-tldr-label {
-  font-size: 11px;
+  font-size: clamp(13px, 1.2vw, 15px);
   font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--pres-blue);
-  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  color: var(--pres-text);
+  padding: 16px 20px 16px 12px;
+  border-right: 1px solid var(--pres-border);
+  line-height: 1.3;
+  white-space: nowrap;
 }
+
 .pres-tldr-body {
-  font-size: clamp(13px, 1.15vw, 15px);
-  line-height: 1.6;
+  font-size: clamp(14px, 1.3vw, 17px);
+  line-height: 1.55;
   color: var(--pres-muted);
   margin: 0;
   font-weight: 400;
+  padding: 14px 24px;
+}
+.pres-tldr-body strong {
+  color: var(--pres-text);
+  font-weight: 700;
 }
 
 /* ══════════════════════════════════════

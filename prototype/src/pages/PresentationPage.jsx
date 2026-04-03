@@ -491,13 +491,14 @@ function SlideVerdict({ data }) {
 
 function SlideTldr({ data }) {
   return (
-    <div className="pres-generic-slide">
+    <div className="pres-generic-slide pres-tldr-slide">
       <div className="pres-eyebrow">{data.eyebrow}</div>
       <h2 className="pres-slide-title">{data.headline}</h2>
-      <div className="pres-tldr-grid">
+      <div className="pres-tldr-list">
         {data.items.map((item, i) => (
-          <div key={i} className="pres-tldr-item">
-            <div className="pres-tldr-label">{item.label}</div>
+          <div key={i} className="pres-tldr-row" style={{ animationDelay: `${120 + i * 70}ms` }}>
+            <span className="pres-tldr-emoji">{item.emoji}</span>
+            <span className="pres-tldr-label">{item.label}</span>
             <p className="pres-tldr-body"><RichText text={item.body} /></p>
           </div>
         ))}
