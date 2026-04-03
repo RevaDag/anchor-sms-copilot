@@ -9,8 +9,8 @@ const INDEX_GROUPS = [
   { label: 'Research',       slides: [6, 7, 8, 9, 10, 11, 12] },
   { label: 'Prioritization', slides: [13, 14] },
   { label: 'Technical',      slides: [15, 16, 17, 18, 19] },
-  { label: 'Business',       slides: [20, 21, 22] },
-  { label: 'Wrap-up',        slides: [23, 24] },
+  { label: 'Business',       slides: [21, 22, 23] },
+  { label: 'Wrap-up',        slides: [24, 25] },
 ];
 
 function getSlideLabel(slide) {
@@ -25,6 +25,7 @@ function getSlideLabel(slide) {
     case 'steps':      return slide.title;
     case 'two-col':    return slide.title;
     case 'ideation':   return slide.title;
+    case 'risks':      return slide.eyebrow;
     case 'verdict':    return 'Strategic Verdict';
     case 'cta':        return 'Live Demo';
     case 'tldr':       return 'TL;DR — Summary';
@@ -144,6 +145,7 @@ function SlideContent({ slide, navigate }) {
     case 'steps':      return <SlideSteps      data={slide} />;
     case 'two-col':    return <SlideTwoCol     data={slide} />;
     case 'ideation':   return <SlideIdeation   data={slide} />;
+    case 'risks':      return <SlideRisks      data={slide} />;
     case 'verdict':    return <SlideVerdict    data={slide} />;
     case 'tldr':       return <SlideTldr       data={slide} />;
     case 'cta':        return <SlideCTA        data={slide} navigate={navigate} />;
@@ -151,12 +153,20 @@ function SlideContent({ slide, navigate }) {
   }
 }
 
+function RichText({ text }) {
+  if (!text) return null;
+  const parts = text.split(/\*\*(.*?)\*\*/g);
+  return parts.map((part, i) =>
+    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+  );
+}
+
 function SlideTitle({ data }) {
   return (
     <div className="pres-title-slide">
       <div className="pres-eyebrow">{data.eyebrow}</div>
       <h1 className="pres-title-headline">{data.headline}</h1>
-      <p className="pres-title-subline">{data.subline}</p>
+      <p className="pres-title-subline"><RichText text={data.subline} /></p>
       <div className="pres-title-divider" />
       <div className="pres-title-hint">Press → or click the arrow to begin</div>
     </div>
@@ -181,11 +191,11 @@ function SlideOverview({ data }) {
       <div className="pres-overview-blocks">
         <div className="pres-overview-block pres-overview-context">
           <div className="pres-overview-block-label">Context</div>
-          <p className="pres-overview-text">{data.context}</p>
+          <p className="pres-overview-text"><RichText text={data.context} /></p>
         </div>
         <div className="pres-overview-block pres-overview-proposal">
           <div className="pres-overview-block-label">The Proposal</div>
-          <p className="pres-overview-text">{data.proposal}</p>
+          <p className="pres-overview-text"><RichText text={data.proposal} /></p>
         </div>
       </div>
     </div>
@@ -265,7 +275,7 @@ function SlideGrid({ data }) {
           <div key={i} className="pres-card">
             <span className="pres-card-icon">{item.icon}</span>
             <div className="pres-card-title">{item.title}</div>
-            <div className="pres-card-body">{item.body}</div>
+            <div className="pres-card-body"><RichText text={item.body} /></div>
           </div>
         ))}
       </div>
@@ -315,8 +325,8 @@ function SlideSteps({ data }) {
           <div key={i} className="pres-step">
             <div className="pres-step-num">{step.num}</div>
             <div className="pres-step-content">
-              <div className="pres-step-label">{step.label}</div>
-              <div className="pres-step-body">{step.body}</div>
+              <div className="pres-step-label"><RichText text={step.label} /></div>
+              <div className="pres-step-body"><RichText text={step.body} /></div>
             </div>
           </div>
         ))}
@@ -339,7 +349,7 @@ function SlideTwoCol({ data }) {
             )}
             <div className="pres-col-items">
               {col.items.map((item, j) => (
-                <div key={j} className="pres-col-item">{item}</div>
+                <div key={j} className="pres-col-item"><RichText text={item} /></div>
               ))}
             </div>
           </div>
@@ -365,11 +375,11 @@ function SlideIdeation({ data }) {
             <div className="pres-ideation-card-title">{idea.title}</div>
             <div className="pres-ideation-section">
               <div className="pres-ideation-section-label">The Concept</div>
-              <p className="pres-ideation-text">{idea.concept}</p>
+              <p className="pres-ideation-text"><RichText text={idea.concept} /></p>
             </div>
             <div className="pres-ideation-section">
               <div className="pres-ideation-section-label">Why Discarded</div>
-              <p className="pres-ideation-text">{idea.reason}</p>
+              <p className="pres-ideation-text"><RichText text={idea.reason} /></p>
             </div>
           </div>
         ))}
@@ -381,9 +391,51 @@ function SlideIdeation({ data }) {
           <div className="pres-ideation-card-title">{data.winner.title}</div>
           <div className="pres-ideation-section">
             <div className="pres-ideation-section-label">Why It Won</div>
-            <p className="pres-ideation-text">{data.winner.body}</p>
+            <p className="pres-ideation-text"><RichText text={data.winner.body} /></p>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+const RISK_LEVEL_COLOR = {
+  'High':       { border: '#D42B1E', badge: '#FEE9E7', text: '#A01E14' },
+  'Medium':     { border: '#C77C1A', badge: '#FEF3E2', text: '#8A5610' },
+  'Low–Medium': { border: '#2D7DD2', badge: '#E8F0FB', text: '#1A4F8A' },
+  'Low':        { border: '#007A50', badge: '#E6F4EF', text: '#005236' },
+};
+
+function SlideRisks({ data }) {
+  const colClass = data.items.length === 2 ? 'pres-risks-grid-2' : 'pres-risks-grid-3';
+  return (
+    <div className="pres-generic-slide">
+      <div className="pres-eyebrow">{data.eyebrow}</div>
+      <h2 className="pres-slide-title">{data.title}</h2>
+      {data.subtitle && <p className="pres-slide-subtitle">{data.subtitle}</p>}
+      <div className={`pres-risks-grid ${colClass}`}>
+        {data.items.map((item, i) => {
+          const lvl = RISK_LEVEL_COLOR[item.level] || RISK_LEVEL_COLOR['Medium'];
+          return (
+            <div key={i} className="pres-risk-card" style={{ '--risk-border': lvl.border }} >
+              <div className="pres-risk-card-header">
+                <span className="pres-risk-icon">{item.icon}</span>
+                <span className="pres-risk-title">{item.title}</span>
+                <span className="pres-risk-level-badge" style={{ background: lvl.badge, color: lvl.text }}>
+                  {item.level}
+                </span>
+              </div>
+              <div className="pres-risk-section pres-risk-section--risk">
+                <div className="pres-risk-section-label">Risk</div>
+                <p className="pres-risk-section-body"><RichText text={item.risk} /></p>
+              </div>
+              <div className="pres-risk-section pres-risk-section--fix">
+                <div className="pres-risk-section-label">Fix</div>
+                <p className="pres-risk-section-body"><RichText text={item.fix} /></p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -394,7 +446,7 @@ function SlideVerdict({ data }) {
     <div className="pres-verdict-slide">
       <div className="pres-eyebrow">{data.eyebrow}</div>
       <blockquote className="pres-verdict-quote">{data.headline}</blockquote>
-      <p className="pres-verdict-sub">{data.subline}</p>
+      <p className="pres-verdict-sub"><RichText text={data.subline} /></p>
     </div>
   );
 }
@@ -408,7 +460,7 @@ function SlideTldr({ data }) {
         {data.items.map((item, i) => (
           <div key={i} className="pres-tldr-item">
             <div className="pres-tldr-label">{item.label}</div>
-            <p className="pres-tldr-body">{item.body}</p>
+            <p className="pres-tldr-body"><RichText text={item.body} /></p>
           </div>
         ))}
       </div>
@@ -421,7 +473,7 @@ function SlideCTA({ data, navigate }) {
     <div className="pres-cta-slide">
       <div className="pres-eyebrow">{data.eyebrow}</div>
       <h2 className="pres-cta-headline">{data.headline}</h2>
-      <p className="pres-cta-sub">{data.subline}</p>
+      <p className="pres-cta-sub"><RichText text={data.subline} /></p>
       <button className="pres-cta-btn" onClick={() => navigate('/prototype')}>
         {data.buttonLabel}
       </button>

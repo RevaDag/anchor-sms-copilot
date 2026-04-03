@@ -5,7 +5,7 @@ export const SLIDES = [
     type: 'title',
     eyebrow: 'PM Home Task Submission',
     headline: 'Anchor SMS Copilot',
-    subline: 'An AI-powered interface that lets freelancers draft agreements, capture scope creep, and chase payments — entirely over SMS.',
+    subline: 'An AI tool that lets freelancers **write agreements**, **catch scope changes**, and **chase payments** — all over SMS.',
   },
 
   // 2. The Assignment
@@ -35,22 +35,22 @@ export const SLIDES = [
       {
         num: '1h',
         label: 'Discovery',
-        body: 'Read Anchor\'s product, app store reviews, G2/Reddit freelancer forums. Map the full pain landscape — what breaks down between "deal struck" and "money received."',
+        body: 'Read Anchor\'s product, app store reviews, and freelancer forums. Mapped the full pain landscape — **what breaks down between "deal struck" and "money received."**',
       },
       {
         num: '1h',
         label: 'Ideation & Selection',
-        body: 'Drafted 4 AI concepts (SMS Copilot, smart invoice suggester, AI contract auditor, cash flow predictor). Applied RICE scoring. Selected SMS Copilot — highest reach + lowest effort delta.',
+        body: 'Drafted 4 AI concepts. Applied **RICE scoring**. Selected SMS Copilot — highest reach with the lowest effort to build.',
       },
       {
         num: '1h',
         label: 'Spec & Design',
-        body: 'Wrote the full product spec: pain points, competitive landscape, 4 user flows, RICE prioritization, risk matrix, business model, and pricing tiers.',
+        body: 'Wrote the full plan: pain points, competitive landscape, 4 user flows, RICE prioritization, risk analysis, business model, and pricing tiers.',
       },
       {
         num: '1h',
         label: 'Build & Present',
-        body: 'Shipped a React prototype with a live Claude AI backend demonstrating all 4 flows. Built this slide presentation to walk through the thinking end-to-end.',
+        body: 'Shipped a **React prototype** with a live Claude AI backend demonstrating all 4 flows. Built this slide deck to walk through the thinking.',
       },
     ],
   },
@@ -65,28 +65,28 @@ export const SLIDES = [
       {
         role: 'Product Manager',
         icon: '🧭',
-        contribution: 'Framed the opportunity space, ran competitive research, mapped user pain points, and structured the full RICE prioritization framework.',
+        contribution: 'Framed the opportunity, ran competitive research, mapped user pain points, and structured the full RICE prioritization.',
         link: 'https://github.com/deanpeters/Product-Manager-Skills',
         linkLabel: 'deanpeters / Product-Manager-Skills',
       },
       {
         role: 'Backend Developer',
         icon: '⚙️',
-        contribution: 'Built the Express server, integrated the Claude AI backend, designed the 6-action engine, and wired the agreement state management system.',
+        contribution: 'Built the Express server, connected the Claude AI backend, designed the 6-action engine, and wired the agreement system.',
         link: 'https://github.com/Jeffallan/claude-skills/tree/main/skills',
         linkLabel: 'Jeffallan / claude-skills',
       },
       {
         role: 'Frontend Designer',
         icon: '🎨',
-        contribution: 'Designed and built the React prototype UI — iPhone mock components, client phone grid, live platform mirror, and this presentation deck.',
+        contribution: 'Designed and built the React prototype — iPhone mock, client phone grid, live platform view, and this presentation deck.',
         link: 'https://skills.sh/anthropics/skills/frontend-design',
         linkLabel: 'skills.sh · frontend-design',
       },
       {
         role: 'QA Engineer',
         icon: '🧪',
-        contribution: 'Validated all 4 user flows end-to-end, caught edge cases in the action engine, and verified consistent behavior across the prototype.',
+        contribution: 'Tested all 4 user flows end-to-end, found edge cases in the action engine, and verified consistent behavior across the prototype.',
         link: 'https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/senior-qa/SKILL.md',
         linkLabel: 'alirezarezvani / senior-qa',
       },
@@ -105,8 +105,8 @@ export const SLIDES = [
   {
     type: 'overview',
     eyebrow: 'Overview',
-    context: 'Anchor is a billing and payments platform designed to help small businesses and freelancers manage workflows and get paid faster. However, even with great tools, solo freelancers and small agencies face significant emotional and administrative hurdles before a payment is even initiated.',
-    proposal: 'The Anchor SMS Copilot is an AI-powered interface that removes this friction. It allows users to draft, amend, and send agreements using natural language via standard text messaging, moving the billing process from a "desk chore" to a "real-time conversation."',
+    context: 'Anchor helps small businesses get **paid faster**. But even with great tools, freelancers still face a big hurdle — the gap between making a deal and getting money.',
+    proposal: 'The Anchor **SMS Copilot** removes that gap. Freelancers can draft agreements, update scope, and send payment reminders — just by **sending a text**. No dashboard. No login.',
   },
 
   // 7. The Problem
@@ -114,33 +114,33 @@ export const SLIDES = [
     type: 'grid',
     eyebrow: 'The Problem',
     title: 'Four pain points killing freelancer income',
-    subtitle: 'Even with great tools, the emotional and administrative burden of getting paid remains unsolved',
+    subtitle: 'Even with great tools, the emotional and admin burden of getting paid is still unsolved',
     columns: 2,
     items: [
       {
         icon: '😓',
         title: 'The Emotional Tax',
-        body: 'Chasing money is psychologically exhausting. Making collection calls or sending "just checking in" emails feels like begging — damaging the client relationship before work is even delivered.',
+        body: 'Asking clients for money feels **awkward**. Sending "just checking in" emails feels like begging — and it can damage the relationship even when the work was great.',
       },
       {
         icon: '📉',
-        title: 'Cash Flow Unpredictability',
-        body: 'Freelancers don\'t know when money will land. If a project ends Friday but invoicing waits until Monday, three days of cash flow are already lost.',
+        title: 'Unpredictable Income',
+        body: 'Freelancers don\'t know **when money will arrive**. If a project ends Friday but invoicing waits until Monday, three days of cash are already lost.',
       },
       {
         icon: '🤝',
-        title: 'Agreement → Billing Friction',
-        body: 'Turning a signed agreement into a structured invoice is tedious. Scope creep via text or call has no structured billing path — it just disappears.',
+        title: 'Slow Agreement-to-Invoice',
+        body: 'Turning a deal into a structured invoice is **tedious**. Scope changes over text or call have no billing path — they just disappear.',
       },
       {
         icon: '⏱',
         title: 'Admin Overhead',
-        body: 'Time tracking, payment reconciliation, and dashboard management pull creators away from billable work. Anchor currently feels "heavy" — built for accountants, not solo creatives.',
+        body: 'Checking dashboards, logging time, and managing invoices **pulls freelancers away from actual work**. Anchor currently feels "heavy" — built for accountants, not solo creatives.',
       },
     ],
   },
 
-  // 3. Ideation — Explored & Discarded
+  // 8. Ideation — Explored & Discarded
   {
     type: 'ideation',
     eyebrow: 'Ideation & Selection',
@@ -150,24 +150,24 @@ export const SLIDES = [
       {
         num: '01',
         title: 'AI Cash-Flow Forecaster',
-        concept: 'Predicts when a freelancer will have cash in the bank by analyzing past client payment patterns.',
-        reason: 'Entirely passive — it warns about late payments but gives no tool to prevent them. Also reinforces the heavy dashboard experience we\'re trying to escape.',
+        concept: 'Predicts when a freelancer will have money by analyzing past client payment patterns.',
+        reason: 'Entirely **passive** — it warns about late payments but gives no way to prevent them. It also keeps the heavy dashboard experience we are trying to move away from.',
       },
       {
         num: '02',
         title: 'AI Invoice Designer',
-        concept: 'Generates branded invoice templates and payment portals from a freelancer\'s logo or website.',
-        reason: 'Solves a surface-level problem. The friction isn\'t visual design — it\'s the emotional tax of chasing money and the time sink of data entry.',
+        concept: 'Generates branded invoice templates and payment pages from a freelancer\'s logo or website.',
+        reason: 'Solves a **surface-level** problem. The real friction is not how invoices look — it is the **discomfort of asking for money** and the time lost on data entry.',
       },
     ],
     winner: {
       num: '03',
       title: 'Anchor SMS Copilot',
-      body: 'Shifts Anchor from a passive dashboard to an active participant in the user\'s workflow. Directly addresses the emotional friction of asking for money — the highest immediate impact on admin overhead.',
+      body: 'Makes Anchor an **active helper** in the freelancer\'s day — not just a dashboard they open later. Directly tackles the **emotional friction** of asking for money — the highest immediate impact on admin overhead.',
     },
   },
 
-  // 4. Market: The Giants
+  // 9. Market: The Giants
   {
     type: 'grid',
     eyebrow: 'Competitive Landscape',
@@ -178,53 +178,53 @@ export const SLIDES = [
       {
         icon: '🍯',
         title: 'HoneyBook',
-        body: 'Full CRM + contracts + invoicing + scheduling. Powerful, but using it feels like a second job. Built for the office, not the "on-the-go" reality of a solo creator.',
+        body: 'Full CRM + contracts + invoicing + scheduling. **Powerful, but complex** — using it feels like a second job. Built for an office team, not a solo creator.',
       },
       {
         icon: '🌿',
         title: 'Bonsai',
-        body: 'Clean contracts, time tracking, tax assistance. Excellent UX — but desktop-first and requires manual data entry for every action. No conversational interface.',
+        body: 'Clean contracts, time tracking, tax help. Great design — but **desktop-first** and requires manual data entry for every action. No way to talk to it.',
       },
       {
         icon: '🧲',
         title: 'Moxie',
-        body: 'Best-in-class calendar + client portal integration. Great for structured agencies — overwhelming for a solo freelancer managing 3–5 active agreements.',
+        body: 'Great calendar + client portal. Built for structured agencies — **too much** for a solo freelancer managing 3–5 active agreements.',
       },
     ],
   },
 
-  // 5. Market: Processors & AI Newcomers
+  // 10. Market: Processors & AI Newcomers
   {
     type: 'grid',
     eyebrow: 'Competitive Landscape',
     title: 'Processors & AI Newcomers',
-    subtitle: 'Infrastructure players and emerging AI tools reshaping the edges — but missing the core',
+    subtitle: 'Infrastructure tools and new AI products reshaping the edges — but missing the core',
     columns: 2,
     items: [
       {
         icon: '💳',
         title: 'Stripe / FreshBooks',
-        body: 'Best-in-class payment rails and bookkeeping. No native client communication, no agreement negotiation layer. They are the "cash register" — they wait for you to bring them the deal.',
+        body: 'Best-in-class payments and bookkeeping. But **no client communication**, no agreement layer. They are the "cash register" — they wait for you to bring them the deal.',
       },
       {
         icon: '🤖',
         title: 'Bookipi / Manus AI',
-        body: 'AI that can generate invoices from simple prompts. Fast and cheap. But "PDF generators" vs. "billing engines" — no platform muscle to track money, enforce milestones, or manage legal agreements.',
+        body: 'AI that generates invoices from simple prompts. Fast and cheap. But they output a **PDF, not a system** — no milestone locks, no payment rails, no legal structure.',
       },
       {
         icon: '🔍',
         title: 'The Shared Weakness',
-        body: 'The Giants are complex. The Processors are transactional. The AI Newcomers are shallow. None combine SMS-native UX + enforceable agreements + live platform sync.',
+        body: 'The Giants are **complex**. The Processors are **transactional**. The AI Newcomers are **shallow**. None combine a **simple SMS interface** with **binding agreements** and **real-time updates**.',
       },
       {
         icon: '🎯',
         title: 'The Opening',
-        body: 'Anchor already has the billing engine, milestone enforcement, and legal agreement infrastructure. The missing layer is a frictionless front door: conversational, mobile, real-time.',
+        body: 'Anchor already has the **billing engine**, **milestone locks**, and **legal agreements**. The missing piece is a **simple front door**: text-based, mobile, instant.',
       },
     ],
   },
 
-  // 6. Competitive Gap table
+  // 11. Competitive Gap table
   {
     type: 'table',
     eyebrow: 'Competitive Analysis',
@@ -233,126 +233,126 @@ export const SLIDES = [
     headers: ['Capability', 'HoneyBook', 'Stripe', 'Bookipi / AI', 'Anchor SMS'],
     highlightCol: 4,
     rows: [
-      ['Primary interface',          'Desktop dashboard', 'Mobile / web',   'Simple web UI',  'SMS (native)'],
-      ['Agreement speed',            'Slow — templates',  'Manual entry',   'Fast (AI prompt)', 'Instant — one text'],
-      ['Scope change handling',      'Manual re-edit',    'New invoice',    'Basic',            'Live line item + client SMS'],
-      ['"Bad cop" enforcement',      'Medium (reminders)', 'None',          'Two reminder modes (no enforcement)',             'Automated milestone lock'],
+      ['Primary interface',     'Desktop dashboard', 'Mobile / web',   'Simple web UI',  'SMS (native)'],
+      ['Agreement speed',       'Slow — templates',  'Manual entry',   'Fast (AI prompt)', 'Instant — one text'],
+      ['Scope change handling', 'Manual re-edit',    'New invoice',    'Basic',            'Live line item + client SMS'],
+      ['Payment enforcement',   'Medium (reminders)', 'None',          'Two reminders only', 'Automated milestone lock'],
     ],
   },
 
-  // 7. The Opportunity
+  // 12. The Opportunity
   {
     type: 'grid',
     eyebrow: 'Strategic Opportunity',
-    title: 'Four durable differentiators',
+    title: 'Four reasons Anchor wins',
     subtitle: 'Anchor wins by being the only billing tool a freelancer never has to open',
     columns: 2,
     items: [
       {
         icon: '01',
-        title: 'Objective Enforcement',
-        body: 'The Copilot acts as the "Bad Cop." The system — not the freelancer — enforces the paywall. Milestone locks are automatic. The human relationship stays intact.',
+        title: 'Automatic Enforcement',
+        body: 'The **system** — not the freelancer — sends the payment block. Milestone locks are automatic. The human relationship stays friendly.',
       },
       {
         icon: '02',
-        title: 'Real-Time Drift Detection',
-        body: 'Client asks for "one quick change"? Text the bot. The AI adds a line item, notifies the client via SMS, and captures approval — all without opening a dashboard.',
+        title: 'Scope Change Capture',
+        body: 'Client asks for extra work? Text the bot. The AI adds the **extra charge**, texts the client, and gets their approval — all without opening a dashboard.',
       },
       {
         icon: '03',
         title: 'Auto-Invoicing from Notes',
-        body: '"Did 4 hours of consulting today." The AI parses the raw text dump, categorizes it, and queues the invoice. Admin time drops from minutes to a single message.',
+        body: '"Did 4 hours of consulting today." The AI reads the message, categorizes it, and **queues the invoice**. Admin time drops from minutes to a single text.',
       },
       {
         icon: '04',
         title: 'Solving the "Anchor Gap"',
-        body: 'User feedback: Anchor feels built for accountants. The Copilot reframes this: standardization is a feature. SMS guarantees a clean, branded mobile checkout every time — no formatting required.',
+        body: 'Some users said Anchor feels built for accountants. The Copilot fixes this: **SMS means no formatting required** — every deal becomes a clean, branded checkout.',
       },
     ],
   },
 
-  // 7. Strategic Verdict
+  // 13. Strategic Verdict
   {
     type: 'verdict',
     eyebrow: 'Strategic Conclusion',
     headline: '"Freelancers want better partners,\nnot better tools."',
-    subline: 'While competitors focus on customization, Anchor wins on time-to-initiation. The SMS Copilot ensures that the moment a deal is struck, the billing engine is already running. By staying in the text thread, Anchor moves from being a "platform" to being a "participant" in the freelancer\'s success.',
+    subline: 'Every competitor is adding more features — better templates, faster exports, bigger dashboards. The Copilot does not add features. It adds **presence**. Anchor is now in the conversation, not waiting for the user to come back to a browser tab. It moves from a **tool you manage** to a **partner that acts for you**.',
   },
 
-  // 8. RICE Prioritization
+  // 14. Feature Scoping — What I Want to Build
   {
-    type: 'table',
-    eyebrow: 'Feature Prioritization · RICE Framework',
-    title: 'What ships first — and why',
-    subtitle: 'Objective scoring across Reach, Impact, Confidence, and Effort',
-    headers: ['Feature', 'Reach', 'Impact', 'Confidence', 'Effort', 'RICE Score', 'Priority'],
-    highlightCol: 5,
-    rows: [
-      ['SMS-to-Checkout Standardization', '9', '2 — High',    '80%', '1', '18.0', 'P0'],
-      ['Objective Enforcement',           '10', '3 — Massive', '90%', '2', '15.0', 'P1'],
-      ['Scope Drift Detection',           '7',  '3 — Massive', '50%', '4', '4.2',  'P2'],
-      ['Auto-Invoicing from Notes',       '8',  '1 — Medium',  '50%', '2', '2.8',  'P2'],
+    type: 'grid',
+    eyebrow: 'What I Want to Build · Wave 1',
+    title: 'Four features for the SMS Copilot',
+    subtitle: 'Each one solves a distinct freelancer pain — here\'s what they do before I score them',
+    columns: 2,
+    items: [
+      {
+        icon: '📤',
+        title: 'Text-to-Checkout',
+        body: 'Every deal texted to the Copilot produces a **clean, branded payment checkout** automatically. No templates to fill, no formatting — the text message becomes the billing event.',
+      },
+      {
+        icon: '🔒',
+        title: 'Automatic Enforcement',
+        body: 'When a milestone is due, Anchor sends an **automated payment reminder** to the client — not the freelancer. The system is the bad cop. The human relationship stays intact.',
+      },
+      {
+        icon: '📝',
+        title: 'Scope Change Alerts',
+        body: 'Client asks for extra work mid-project? Text "Add $300 for revisions." The AI adds the **line item**, notifies the client, and captures their approval — no dashboard needed.',
+      },
+      {
+        icon: '🧾',
+        title: 'Auto-Invoicing from Notes',
+        body: 'Text a raw summary: "4 hours consulting, 2 hours design." The AI reads it, categorizes it, and **queues an invoice**. Admin time drops from minutes to a single message.',
+      },
     ],
   },
 
-  // 9. P0 & P1 Rationale
+  // 15. RICE Prioritization
   {
-    type: 'two-col',
-    eyebrow: 'Priority Rationale',
-    title: 'P0 and P1: What we build and why',
-    left: {
-      heading: 'P0 — SMS Standardization',
-      badge: 'Ship first',
-      badgeColor: '#0E9F6E',
-      items: [
-        'Highest RICE score (18.0) — 20% above P1',
-        'Lowest effort: standardization, not customization',
-        'Solves the #1 brand perception problem immediately',
-        'Unblocks all downstream features that depend on SMS output format',
-        'Creates immediate value for 100% of users on day one',
-      ],
-    },
-    right: {
-      heading: 'P1 — Objective Enforcement',
-      badge: 'Ship second',
-      badgeColor: '#1A56DB',
-      items: [
-        'Highest Impact score (3 — Massive)',
-        'Directly addresses the #1 user pain: chasing money',
-        'Turns Anchor from a tool into a partner',
-        'Requires P0 SMS format to be stable first',
-        'Creates the "lock-in" that drives long-term retention',
-      ],
-    },
+    type: 'table',
+    eyebrow: 'Feature Prioritization · RICE Scoring',
+    title: 'What ships first — and why',
+    subtitle: 'RICE = Reach × Impact × Confidence ÷ Effort. Higher score = ship first.',
+    headers: ['Feature', 'Reach', 'Impact', 'Confidence', 'Effort', 'RICE Score', 'Priority'],
+    highlightCol: 5,
+    rows: [
+      ['Text-to-Checkout',        '9', '2 — High',    '80%', '1', '18.0', 'P0'],
+      ['Automatic Enforcement',   '10', '3 — Massive', '90%', '2', '15.0', 'P1'],
+      ['Scope Change Alerts',     '7',  '3 — Massive', '50%', '4', '4.2',  'P2'],
+      ['Auto-Invoicing from Notes', '8', '1 — Medium', '50%', '2', '2.8',  'P2'],
+    ],
   },
 
-  // 10. Architecture
+  // 17. Architecture
   {
     type: 'grid',
     eyebrow: 'Technical Architecture',
     title: 'Three-layer system',
-    subtitle: 'Each layer is independently testable and incrementally deployable',
+    subtitle: 'Each layer can be built and tested separately',
     columns: 3,
     items: [
       {
         icon: '📱',
         title: 'Layer 1 — SMS Interface',
-        body: 'A mobile-first chat UI where the freelancer types natural language commands. Messages go to a backend API powered by Claude AI, which returns both an SMS reply and a structured action payload.',
+        body: 'A mobile-first chat where the freelancer types in **plain language**. Messages go to a backend powered by Claude AI, which returns an SMS reply and a structured action.',
       },
       {
         icon: '⚙️',
         title: 'Layer 2 — Action Engine',
-        body: 'A stateful context layer that receives the AI\'s action payload and mutates platform data. Supports: draft_agreement, confirm, add_line_item, mark_paid, send_reminder, update_agreement.',
+        body: 'Receives the AI response and **updates Anchor\'s data**. Supports six actions: draft agreement, confirm, add line item, mark paid, send reminder, update agreement.',
       },
       {
-        icon: '🖥',
+        icon: '🪞',
         title: 'Layer 3 — Platform Mirror',
-        body: 'A real-time replica of Anchor\'s Agreements dashboard. Every SMS action is instantly reflected: new agreements appear, statuses change, milestones update. The Copilot is a remote control — not a standalone tool.',
+        body: 'A **real-time view** of Anchor\'s Agreements dashboard. Every SMS action is instantly reflected — new agreements appear, statuses change, milestones update. The Copilot is a remote control, not a standalone tool.',
       },
     ],
   },
 
-  // 11. Flow 1: Draft Agreement
+  // 18. Flow 1: Draft Agreement
   {
     type: 'steps',
     eyebrow: 'User Flow 1',
@@ -360,30 +360,30 @@ export const SLIDES = [
     subtitle: '"Draft a $4k agreement with Rachel, 50% upfront"',
     badge: '< 60 seconds from deal to billing engine',
     steps: [
-      { num: '1', label: 'Freelancer texts the Copilot immediately after a verbal deal', body: '"Draft a $4k agreement with Rachel, 50% upfront"' },
-      { num: '2', label: 'AI parses total, client name, and split — replies with confirmation', body: '"Ready to send: Rachel, $4,000 — $2,000 upfront + $2,000 on delivery. Reply YES to confirm."' },
-      { num: '3', label: 'Freelancer replies YES', body: 'Agreement created in Anchor, milestone 1 set to pending' },
+      { num: '1', label: 'Freelancer texts the Copilot right after a verbal deal', body: '"Draft a $4k agreement with Rachel, 50% upfront"' },
+      { num: '2', label: 'AI reads the message and replies with a confirmation', body: '"Ready to send: Rachel, $4,000 — $2,000 upfront + $2,000 on delivery. Reply **YES** to confirm."' },
+      { num: '3', label: 'Freelancer replies YES', body: '**Agreement created** in Anchor, milestone 1 set to pending' },
       { num: '4', label: 'Automated SMS sent to client', body: '"Hi Rachel! Anchor sent you a payment agreement for $4,000. Tap to review and approve."' },
-      { num: '5', label: 'Client approves — milestone 1 flips to paid', body: '"Rachel paid $2,000. Milestone 2 unlocked." Platform mirror updates instantly.' },
+      { num: '5', label: 'Client approves — milestone 1 flips to paid', body: '"**Rachel paid $2,000.** Milestone 2 unlocked." Platform view updates instantly.' },
     ],
   },
 
-  // 12. Flow 2: Scope Creep
+  // 19. Flow 2: Scope Creep
   {
     type: 'steps',
     eyebrow: 'User Flow 2',
-    title: 'Capture Scope Creep',
+    title: 'Capture Scope Changes',
     subtitle: '"Add $300 for extra revisions"',
     badge: 'Scope captured in seconds, not days',
     steps: [
-      { num: '1', label: 'Client requests extra work verbally or via text', body: 'Freelancer doesn\'t open any dashboard — they just text the bot' },
-      { num: '2', label: 'AI adds a line item and notifies the client', body: '"New line item: \'Extra revisions\' — $300. Reply YES to approve."' },
-      { num: '3', label: 'Client replies YES', body: 'Line item approved, agreement total updated, audit trail locked with timestamp' },
-      { num: '4', label: 'Platform mirrors the change', body: 'Dashboard shows updated total and the new line item with approval status' },
+      { num: '1', label: 'Client requests extra work verbally or over text', body: 'Freelancer does not open any dashboard — they just **text the bot**' },
+      { num: '2', label: 'AI adds a line item and notifies the client', body: '"New line item: \'Extra revisions\' — **$300**. Reply YES to approve."' },
+      { num: '3', label: 'Client replies YES', body: '**Line item approved**, agreement total updated, audit trail locked with timestamp' },
+      { num: '4', label: 'Platform reflects the change', body: 'Dashboard shows **updated total** and the new line item with approval status' },
     ],
   },
 
-  // 13. Flow 3: Send Reminders
+  // 20. Flow 3: Send Reminders
   {
     type: 'steps',
     eyebrow: 'User Flow 3',
@@ -391,13 +391,13 @@ export const SLIDES = [
     subtitle: '"Send David a reminder" or "Remind all overdue clients"',
     badge: 'The freelancer never writes a "just checking in" again',
     steps: [
-      { num: '1', label: 'Freelancer texts from anywhere — commute, between meetings', body: '"Send David a reminder" or "Remind all overdue clients"' },
-      { num: '2', label: 'Copilot identifies overdue agreement and fires automated SMS to client', body: '"Hi David! Quick reminder from Anchor — your $7,200 payment is overdue since Feb 28."' },
-      { num: '3', label: 'Dashboard logs a last_reminded timestamp — full audit trail', body: 'Freelancer can check back anytime: "Did David get a reminder?" Yes. Sent Tuesday at 2pm.' },
+      { num: '1', label: 'Freelancer texts from anywhere — commute, between meetings', body: '"Send David a reminder" or "Remind all **overdue** clients"' },
+      { num: '2', label: 'Copilot finds the overdue agreement and sends an automated SMS to the client', body: '"Hi David! Quick reminder from Anchor — your **$7,200 payment is overdue** since Feb 28."' },
+      { num: '3', label: 'Dashboard logs the reminder with a timestamp — full record', body: 'Freelancer can check back anytime: "Did David get a reminder?" Yes. Sent Tuesday at 2pm.' },
     ],
   },
 
-  // 14. Flow 4: Portfolio Status
+  // 21. Flow 4: Portfolio Status
   {
     type: 'steps',
     eyebrow: 'User Flow 4',
@@ -405,64 +405,83 @@ export const SLIDES = [
     subtitle: '"Who owes me money?" / "How much have I collected?"',
     badge: 'Full financial snapshot as a single text message',
     steps: [
-      { num: '1', label: 'Freelancer queries their full portfolio in plain English', body: '"Who owes me money?"' },
-      { num: '2', label: 'Copilot aggregates across all active agreements and replies', body: '"David Lee owes $7,200 (overdue since Feb 28) and Maya Cohen owes $1,900 (pending approval). Total outstanding: $9,100."' },
+      { num: '1', label: 'Freelancer asks about their money in plain English', body: '"Who owes me money?"' },
+      { num: '2', label: 'Copilot checks all active agreements and replies', body: '"**David Lee** owes $7,200 (overdue since Feb 28) and **Maya Cohen** owes $1,900 (pending approval). Total outstanding: **$9,100**."' },
     ],
   },
 
-  // 15. Risks
+  // 22a. Risks — Part 1
   {
-    type: 'grid',
-    eyebrow: 'Risk Analysis',
-    title: 'Five risks — and how we manage them',
-    subtitle: 'Honest accounting of what could go wrong',
-    columns: 3,
+    type: 'risks',
+    eyebrow: 'Risk Analysis · 1 of 2',
+    title: 'What could go wrong',
+    subtitle: 'Honest look at the three highest-concern areas',
     items: [
       {
         icon: '⚠️',
         title: 'AI Reliability',
-        body: 'Misinterpreted intent could corrupt a live agreement. Mitigation: every financial action requires an explicit YES confirmation. Ambiguous inputs default to clarification. Risk: Medium.',
+        risk: 'The **AI could misinterpret** a freelancer\'s text — adding the wrong amount, the wrong client, or triggering an action the user didn\'t intend — and **update a live agreement** without them realising.',
+        fix: 'Every financial action requires an **explicit YES** confirmation before it executes. Unclear inputs always ask for clarification — the AI never guesses.',
+        level: 'Medium',
       },
       {
         icon: '📱',
         title: 'SMS Delivery & Trust',
-        body: 'No delivery guarantees. Payment requests via unknown numbers create phishing friction. Mitigation: verified Twilio short code + freelancer name in every message. Risk: Medium.',
+        risk: 'SMS has **no delivery guarantees** — a reminder or agreement link could silently fail to arrive. And when clients receive a payment request from an **unknown number**, they may ignore or report it as spam.',
+        fix: 'Use a **verified Twilio short code** so the sender is recognisable, and include the freelancer\'s name in every message so the client knows who it\'s from.',
+        level: 'Medium',
       },
       {
         icon: '🔄',
-        title: 'Adoption Friction',
-        body: 'The hardest risk: behavioral change. Value must be felt in the first two minutes. Onboarding = "deal struck → agreement live" in 3 messages, not a feature tour. Risk: High.',
+        title: 'Adoption',
+        risk: 'Freelancers are used to opening a dashboard to manage billing. If the Copilot doesn\'t show **obvious value immediately**, users will try it once and go back to their old workflow — and never return.',
+        fix: 'The **first experience must close a real deal** — not show features. Deal struck → agreement live in 3 texts. If that doesn\'t happen in session one, the product has already lost.',
+        level: 'High',
       },
+    ],
+  },
+
+  // 22b. Risks — Part 2
+  {
+    type: 'risks',
+    eyebrow: 'Risk Analysis · 2 of 2',
+    title: 'What could go wrong',
+    subtitle: 'Two remaining risks — both manageable',
+    items: [
       {
         icon: '🔒',
         title: 'Data Security & GDPR',
-        body: 'Billing data + AI processing layer creates compliance exposure. Mitigation: no persistent storage of raw messages. Existing Anchor policies cover most exposure. Risk: Low–Medium.',
+        risk: 'Every SMS the freelancer sends passes through an **AI processing layer** — meaning billing amounts, client names, and agreement details are all handled outside Anchor\'s own infrastructure, creating **GDPR and data retention exposure**.',
+        fix: '**Raw messages are never stored** after processing. Anchor\'s existing data policies already cover the agreement and payment data — the AI layer only reads, never persists.',
+        level: 'Low–Medium',
       },
       {
         icon: '🏁',
         title: 'Competitive Response',
-        body: 'HoneyBook or Bonsai could build an SMS layer in 6–12 months. Moat: they\'d get a chatbot, not a copilot. The value is Anchor\'s milestone enforcement, legal infrastructure, and payment rails. Risk: Low at launch.',
+        risk: 'Once the SMS Copilot ships and gains traction, a competitor like HoneyBook or Bonsai could build a **similar chat interface in 6–12 months** — potentially closing the gap before Anchor locks in retention.',
+        fix: 'They\'d ship a **chatbot connected to a form engine — not a copilot**. Replicating Anchor\'s milestone enforcement, legally binding agreements, and payment rails would take years — not months.',
+        level: 'Low',
       },
     ],
   },
 
-  // 16. Business Model
+  // 23. Business Model
   {
     type: 'table',
     eyebrow: 'Business Model',
     title: 'Pricing: the Copilot as a premium add-on',
-    subtitle: 'Not bundled at launch — a distinct, high-value capability with clear willingness to pay',
+    subtitle: 'Not bundled at launch — a clear upgrade with strong value',
     headers: ['Tier', 'Price', 'Who It\'s For', 'What\'s Included'],
     highlightCol: null,
     rows: [
-      ['Anchor Core (Free)',    '$0 / mo',   'New users, light users',                  'Full dashboard access. No SMS Copilot.'],
-      ['Copilot Starter',      '$12 / mo',  'Freelancers, 1–5 active clients',          '50 Copilot messages/mo · Agreement drafting · Reminders'],
-      ['Copilot Pro',          '$29 / mo',  'Active freelancers, small agencies',        'Unlimited messages · Scope drift · Line items · Portfolio snapshots'],
-      ['Copilot Business',     '$59 / mo',  'Agencies, 2–5 team members',               'Everything in Pro · Multi-user · Team agreements · Priority AI routing'],
+      ['Anchor Core (Free)',  '$0 / mo',   'New users, light users',           'Full dashboard access. No SMS Copilot.'],
+      ['Copilot Starter',    '$12 / mo',  'Freelancers, 1–5 active clients',   '50 Copilot messages/mo · Agreement drafting · Reminders'],
+      ['Copilot Pro',        '$29 / mo',  'Active freelancers, small agencies', 'Unlimited messages · Scope changes · Line items · Portfolio snapshots'],
+      ['Copilot Business',   '$59 / mo',  'Agencies, 2–5 team members',        'Everything in Pro · Multi-user · Team agreements · Priority AI'],
     ],
   },
 
-  // 17. Revenue Logic & Metrics
+  // 24. Revenue Logic & Metrics
   {
     type: 'two-col',
     eyebrow: 'Revenue & Success Metrics',
@@ -472,27 +491,27 @@ export const SLIDES = [
       badge: null,
       badgeColor: null,
       items: [
-        'Average freelancer invoice: $3,000–$8,000. $29/mo is <0.3% of revenue.',
-        'One recovered late payment via reminder is worth 25 years of the Starter plan.',
-        'Emotional cost of chasing money is the #1 pain. Users pay to not feel that way.',
-        '5,000 Pro users at $29/mo = $1.74M ARR on top of existing transaction revenue.',
-        'Every SMS sent raises switching cost — billing history + client trails live inside Anchor.',
+        'Average freelancer invoice: $3,000–$8,000. **$29/mo is less than 0.3% of one project\'s revenue.**',
+        'One recovered late payment via reminder is worth **25 years of the Starter plan**.',
+        'The emotional cost of chasing money is the #1 pain. Users pay to **not feel that way**.',
+        '5,000 Pro users at $29/mo = **$1.74M in yearly revenue** on top of existing transaction fees.',
+        'Every SMS sent **raises the cost of leaving** — billing history and client records live inside Anchor.',
       ],
     },
     right: {
-      heading: 'Monetization Signals to Watch',
+      heading: 'Signals to Watch',
       badge: null,
       badgeColor: null,
       items: [
-        'Time-to-first-send: did a new user send a Copilot message in their first session?',
-        'Reminder-to-payment conversion: what % of AI reminders result in payment within 48h?',
-        'Scope drift capture rate: how often is "add a line item" used per active agreement?',
-        'Starter → Pro upgrade rate within 60 days: target >15%. If under, the Pro delta is unclear.',
+        '**Time-to-first-send**: did a new user send a Copilot message in their first session?',
+        '**Reminder-to-payment rate**: what % of AI reminders result in payment within 48h?',
+        '**Scope change usage**: how often is "add a line item" used per active agreement?',
+        '**Starter → Pro upgrade** in 60 days: target >15%. If lower, the Pro benefits are not clear enough.',
       ],
     },
   },
 
-  // 23. TL;DR
+  // 25. TL;DR
   {
     type: 'tldr',
     eyebrow: 'The Short Version',
@@ -500,37 +519,37 @@ export const SLIDES = [
     items: [
       {
         label: '01 · The Problem',
-        body: 'Freelancers lose time and money chasing payments. Even with billing tools, they still write "just checking in" emails, manually log scope changes, and avoid awkward money conversations.',
+        body: 'Freelancers **lose time and money chasing payments**. Even with billing tools, they still write "just checking in" emails, manually log scope changes, and avoid awkward money conversations.',
       },
       {
         label: '02 · The Proposal',
-        body: 'Text Anchor to draft a $4k agreement, add a scope-creep line item, or fire a payment reminder. The AI handles it in seconds — no dashboard, no login, no friction.',
+        body: 'Text Anchor to **draft a $4k agreement**, add a scope change, or send a payment reminder. The AI handles it in seconds — no dashboard, no login, no friction.',
       },
       {
         label: '03 · Why Anchor Wins',
-        body: 'Any competitor can build a chat interface. What they can\'t replicate is Anchor\'s milestone enforcement, legally binding agreements, and payment rails. The Copilot is just the new front door to that existing engine.',
+        body: 'Any competitor can build a chat interface. What they **cannot copy** is Anchor\'s **milestone locks**, **binding agreements**, and **payment system**. The Copilot is just the new front door to that existing engine.',
       },
       {
         label: '04 · What Ships',
-        body: 'P0: SMS-to-checkout standardization (RICE 18.0). P1: Automated milestone enforcement. Four live user flows on a 6-action AI backend.',
+        body: '**P0**: Text-to-checkout (RICE 18.0). **P1**: Automated milestone enforcement. Four live user flows on a real AI backend.',
       },
       {
         label: '05 · Business Case',
-        body: '$12–$29/mo add-on tier. One recovered late payment covers 25 years of Starter. At 5,000 Pro users: $1.74M ARR stacked on top of existing transaction revenue.',
+        body: '**$12–$29/mo** add-on tier. One recovered late payment covers 25 years of Starter. At 5,000 Pro users: **$1.74M in yearly revenue** stacked on top of existing transaction fees.',
       },
       {
         label: '06 · See It Live',
-        body: 'All four flows are live in the prototype — draft agreement, scope capture, reminder, portfolio status — powered by a real AI backend in the browser.',
+        body: 'All four flows are **live in the prototype** — draft agreement, scope capture, reminder, portfolio status — powered by a real AI backend in the browser.',
       },
     ],
   },
 
-  // 24. CTA
+  // 26. CTA
   {
     type: 'cta',
     eyebrow: 'Live Prototype',
     headline: 'See it in action',
-    subline: 'The prototype demonstrates all four core flows — draft agreement, scope capture, reminder, and portfolio status — live in the browser.',
+    subline: 'The prototype shows all four core flows — **draft agreement**, **scope capture**, **reminder**, and **portfolio status** — live in the browser.',
     buttonLabel: 'Launch Prototype →',
   },
 ];
