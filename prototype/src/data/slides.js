@@ -210,8 +210,6 @@ export const SLIDES = [
       ['Agreement speed',            'Slow — templates',  'Manual entry',   'Fast (AI prompt)', 'Instant — one text'],
       ['Scope change handling',      'Manual re-edit',    'New invoice',    'Basic',            'Live line item + client SMS'],
       ['"Bad cop" enforcement',      'Medium (reminders)', 'None',          'Two reminder modes (no enforcement)',             'Automated milestone lock'],
-      ['Client zero-install UX',     '✗',                '✗',              '✗',               '✓'],
-      ['Live platform mirror',       '✗',                '✗',              '✗',               '✓'],
     ],
   },
 
