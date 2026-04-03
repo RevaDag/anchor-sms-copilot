@@ -140,7 +140,34 @@ export const SLIDES = [
     ],
   },
 
-  // 3. Market: The Giants
+  // 3. Ideation — Explored & Discarded
+  {
+    type: 'ideation',
+    eyebrow: 'Ideation & Selection',
+    title: 'Exploring the Opportunity Space',
+    subtitle: 'Before landing on the SMS Copilot, I explored several AI-driven concepts — here are two I discarded',
+    discarded: [
+      {
+        num: '01',
+        title: 'AI Cash-Flow Forecaster',
+        concept: 'Predicts when a freelancer will have cash in the bank by analyzing past client payment patterns.',
+        reason: 'Entirely passive — it warns about late payments but gives no tool to prevent them. Also reinforces the heavy dashboard experience we\'re trying to escape.',
+      },
+      {
+        num: '02',
+        title: 'AI Invoice Designer',
+        concept: 'Generates branded invoice templates and payment portals from a freelancer\'s logo or website.',
+        reason: 'Solves a surface-level problem. The friction isn\'t visual design — it\'s the emotional tax of chasing money and the time sink of data entry.',
+      },
+    ],
+    winner: {
+      num: '03',
+      title: 'Anchor SMS Copilot',
+      body: 'Shifts Anchor from a passive dashboard to an active participant in the user\'s workflow. Directly addresses the emotional friction of asking for money — the highest immediate impact on admin overhead.',
+    },
+  },
+
+  // 4. Market: The Giants
   {
     type: 'grid',
     eyebrow: 'Competitive Landscape',
@@ -166,7 +193,7 @@ export const SLIDES = [
     ],
   },
 
-  // 4. Market: Processors & AI Newcomers
+  // 5. Market: Processors & AI Newcomers
   {
     type: 'grid',
     eyebrow: 'Competitive Landscape',
@@ -197,7 +224,7 @@ export const SLIDES = [
     ],
   },
 
-  // 5. Competitive Gap table
+  // 6. Competitive Gap table
   {
     type: 'table',
     eyebrow: 'Competitive Analysis',
@@ -211,33 +238,6 @@ export const SLIDES = [
       ['Scope change handling',      'Manual re-edit',    'New invoice',    'Basic',            'Live line item + client SMS'],
       ['"Bad cop" enforcement',      'Medium (reminders)', 'None',          'Two reminder modes (no enforcement)',             'Automated milestone lock'],
     ],
-  },
-
-  // 6. Ideation — Explored & Discarded
-  {
-    type: 'ideation',
-    eyebrow: 'Ideation & Selection',
-    title: 'Exploring the Opportunity Space',
-    subtitle: 'Before landing on the SMS Copilot, I explored several AI-driven concepts — here are two I discarded',
-    discarded: [
-      {
-        num: '01',
-        title: 'AI Cash-Flow Forecaster',
-        concept: 'Predicts when a freelancer will have cash in the bank by analyzing past client payment patterns.',
-        reason: 'Entirely passive — it warns about late payments but gives no tool to prevent them. Also reinforces the heavy dashboard experience we\'re trying to escape.',
-      },
-      {
-        num: '02',
-        title: 'AI Invoice Designer',
-        concept: 'Generates branded invoice templates and payment portals from a freelancer\'s logo or website.',
-        reason: 'Solves a surface-level problem. The friction isn\'t visual design — it\'s the emotional tax of chasing money and the time sink of data entry.',
-      },
-    ],
-    winner: {
-      num: '03',
-      title: 'Anchor SMS Copilot',
-      body: 'Shifts Anchor from a passive dashboard to an active participant in the user\'s workflow. Directly addresses the emotional friction of asking for money — the highest immediate impact on admin overhead.',
-    },
   },
 
   // 7. The Opportunity

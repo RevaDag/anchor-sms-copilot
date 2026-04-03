@@ -304,6 +304,23 @@
   font-weight: 400;
 }
 
+/* 3-col grids (e.g. Technical Architecture) — larger cards for readability */
+.pres-grid-3 .pres-card {
+  padding: 30px 28px;
+}
+.pres-grid-3 .pres-card-icon {
+  font-size: clamp(28px, 3vw, 38px);
+  margin-bottom: 14px;
+}
+.pres-grid-3 .pres-card-title {
+  font-size: clamp(19px, 1.8vw, 24px);
+  margin-bottom: 10px;
+}
+.pres-grid-3 .pres-card-body {
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.7;
+}
+
 /* ══════════════════════════════════════
    TABLE
 ══════════════════════════════════════ */
@@ -1225,6 +1242,9 @@
   .pres-card           { padding: 16px 18px; }
   .pres-card-title     { font-size: clamp(14px, 1.3vw, 17px); }
   .pres-card-body      { font-size: clamp(13px, 1.1vw, 15px); }
+  .pres-grid-3 .pres-card       { padding: 22px 20px; }
+  .pres-grid-3 .pres-card-title { font-size: clamp(16px, 1.5vw, 19px); }
+  .pres-grid-3 .pres-card-body  { font-size: clamp(14px, 1.3vw, 16px); }
   .pres-grid           { gap: 10px; }
   .pres-steps          { max-width: 620px; }
   .pres-step           { padding-bottom: 14px; }
