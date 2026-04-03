@@ -322,6 +322,117 @@
 }
 
 /* ══════════════════════════════════════
+   KPI SLIDE
+══════════════════════════════════════ */
+.pres-kpi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 8px;
+}
+
+.pres-kpi-card {
+  display: grid;
+  grid-template-columns: 260px 1fr 160px;
+  align-items: stretch;
+  background: var(--pres-card-bg);
+  border: 1px solid var(--pres-border);
+  border-left: 4px solid var(--pres-blue);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+  animation: presEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.pres-kpi-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 28px;
+  border-right: 1px solid var(--pres-border);
+  background: rgba(20, 50, 255, 0.025);
+}
+.pres-kpi-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--pres-blue);
+  text-transform: uppercase;
+}
+.pres-kpi-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+.pres-kpi-title {
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--pres-text);
+  line-height: 1.25;
+}
+
+.pres-kpi-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 20px 28px;
+}
+.pres-kpi-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  padding: 10px 0;
+}
+.pres-kpi-row + .pres-kpi-row {
+  border-top: 1px solid var(--pres-border);
+}
+.pres-kpi-row-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pres-dim);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+.pres-kpi-row-body {
+  font-size: clamp(14px, 1.35vw, 17px);
+  color: var(--pres-muted);
+  line-height: 1.6;
+}
+
+.pres-kpi-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px 20px;
+  border-left: 1px solid var(--pres-border);
+  background: var(--pres-blue-dim);
+  gap: 6px;
+}
+.pres-kpi-target-num {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--pres-blue);
+  line-height: 1;
+}
+.pres-kpi-target-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pres-muted);
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════
    RISKS CARDS
 ══════════════════════════════════════ */
 .pres-risks-grid {
@@ -418,6 +529,34 @@
 /* ══════════════════════════════════════
    TABLE
 ══════════════════════════════════════ */
+.pres-table-disclaimer {
+  font-size: 12px;
+  color: var(--pres-dim);
+  margin-top: 10px;
+  line-height: 1.6;
+  max-width: 1080px;
+  width: 100%;
+}
+
+.pres-table-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pres-green);
+  background: rgba(0, 122, 80, 0.08);
+  border: 1px solid rgba(0, 122, 80, 0.2);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+.pres-table-note::before {
+  content: '🎁';
+  font-size: 14px;
+}
+
 .pres-table-wrap {
   width: 100%;
   max-width: 1080px;

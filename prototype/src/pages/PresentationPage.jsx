@@ -9,8 +9,8 @@ const INDEX_GROUPS = [
   { label: 'Research',       slides: [6, 7, 8, 9, 10, 11, 12] },
   { label: 'Prioritization', slides: [13, 14] },
   { label: 'Technical',      slides: [15, 16, 17, 18, 19] },
-  { label: 'Business',       slides: [21, 22, 23] },
-  { label: 'Wrap-up',        slides: [24, 25] },
+  { label: 'Business',       slides: [21, 22, 23, 24] },
+  { label: 'Wrap-up',        slides: [25, 26] },
 ];
 
 function getSlideLabel(slide) {
@@ -25,6 +25,7 @@ function getSlideLabel(slide) {
     case 'steps':      return slide.title;
     case 'two-col':    return slide.title;
     case 'ideation':   return slide.title;
+    case 'kpis':       return slide.eyebrow;
     case 'risks':      return slide.eyebrow;
     case 'verdict':    return 'Strategic Verdict';
     case 'cta':        return 'Live Demo';
@@ -145,6 +146,7 @@ function SlideContent({ slide, navigate }) {
     case 'steps':      return <SlideSteps      data={slide} />;
     case 'two-col':    return <SlideTwoCol     data={slide} />;
     case 'ideation':   return <SlideIdeation   data={slide} />;
+    case 'kpis':       return <SlideKPIs       data={slide} />;
     case 'risks':      return <SlideRisks      data={slide} />;
     case 'verdict':    return <SlideVerdict    data={slide} />;
     case 'tldr':       return <SlideTldr       data={slide} />;
@@ -289,6 +291,7 @@ function SlideTable({ data }) {
       <div className="pres-eyebrow">{data.eyebrow}</div>
       <h2 className="pres-slide-title">{data.title}</h2>
       {data.subtitle && <p className="pres-slide-subtitle">{data.subtitle}</p>}
+      {data.note && <div className="pres-table-note">{data.note}</div>}
       <div className="pres-table-wrap">
         <table className="pres-table">
           <thead>
@@ -309,6 +312,7 @@ function SlideTable({ data }) {
           </tbody>
         </table>
       </div>
+      {data.disclaimer && <p className="pres-table-disclaimer">{data.disclaimer}</p>}
     </div>
   );
 }
@@ -394,6 +398,40 @@ function SlideIdeation({ data }) {
             <p className="pres-ideation-text"><RichText text={data.winner.body} /></p>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function SlideKPIs({ data }) {
+  return (
+    <div className="pres-generic-slide">
+      <div className="pres-eyebrow">{data.eyebrow}</div>
+      <h2 className="pres-slide-title">{data.title}</h2>
+      <div className="pres-kpi-list">
+        {data.items.map((kpi, i) => (
+          <div key={i} className="pres-kpi-card" style={{ animationDelay: `${160 + i * 140}ms` }}>
+            <div className="pres-kpi-left">
+              <span className="pres-kpi-num">{kpi.num}</span>
+              <span className="pres-kpi-icon">{kpi.icon}</span>
+              <span className="pres-kpi-title">{kpi.title}</span>
+            </div>
+            <div className="pres-kpi-middle">
+              <div className="pres-kpi-row">
+                <span className="pres-kpi-row-label">Measures</span>
+                <span className="pres-kpi-row-body">{kpi.measures}</span>
+              </div>
+              <div className="pres-kpi-row">
+                <span className="pres-kpi-row-label">Why it matters</span>
+                <span className="pres-kpi-row-body">{kpi.why}</span>
+              </div>
+            </div>
+            <div className="pres-kpi-right">
+              <div className="pres-kpi-target-num">{kpi.target}</div>
+              <div className="pres-kpi-target-label">{kpi.targetLabel}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

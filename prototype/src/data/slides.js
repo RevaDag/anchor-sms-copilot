@@ -459,7 +459,7 @@ export const SLIDES = [
         icon: '🏁',
         title: 'Competitive Response',
         risk: 'Once the SMS Copilot ships and gains traction, a competitor like HoneyBook or Bonsai could build a **similar chat interface in 6–12 months** — potentially closing the gap before Anchor locks in retention.',
-        fix: 'They\'d ship a **chatbot connected to a form engine — not a copilot**. Replicating Anchor\'s milestone enforcement, legally binding agreements, and payment rails would take years — not months.',
+        fix: 'The window to act is **before competitors respond**. Every deal closed through the Copilot adds client history, agreement records, and payment trails inside Anchor — building **stickiness** that makes it increasingly costly to leave. The goal is to establish that stickiness before a HoneyBook SMS feature ships.',
         level: 'Low',
       },
     ],
@@ -469,46 +469,72 @@ export const SLIDES = [
   {
     type: 'table',
     eyebrow: 'Business Model',
-    title: 'Pricing: the Copilot as a premium add-on',
-    subtitle: 'Not bundled at launch — a clear upgrade with strong value',
-    headers: ['Tier', 'Price', 'Who It\'s For', 'What\'s Included'],
+    title: 'Simple pricing',
+    subtitle: 'Try the full Copilot free, then pay only if it saves you time and money',
+    note: 'First 3 months free on all Copilot tiers',
+    disclaimer: '* Copilot tiers are add-ons to Anchor\'s base plan ($5/mo). Anchor\'s pricing is simple and easy — just like getting paid is going to be for you.',
+    headers: ['Tier', 'Price', 'Best for', 'Includes'],
     highlightCol: null,
     rows: [
-      ['Anchor Core (Free)',  '$0 / mo',   'New users, light users',           'Full dashboard access. No SMS Copilot.'],
-      ['Copilot Starter',    '$12 / mo',  'Freelancers, 1–5 active clients',   '50 Copilot messages/mo · Agreement drafting · Reminders'],
-      ['Copilot Pro',        '$29 / mo',  'Active freelancers, small agencies', 'Unlimited messages · Scope changes · Line items · Portfolio snapshots'],
-      ['Copilot Business',   '$59 / mo',  'Agencies, 2–5 team members',        'Everything in Pro · Multi-user · Team agreements · Priority AI'],
+      ['Anchor Core',      'Free forever', 'Anyone on Anchor',           'Full dashboard. No SMS Copilot.'],
+      ['Copilot Starter',  '$12 / mo',     '1 user · Solo freelancer',   '50 messages/mo · Draft agreements · Send reminders'],
+      ['Copilot Pro',      '$29 / mo',     '1 user · Active freelancer', 'Unlimited messages · Scope changes · Portfolio status'],
+      ['Copilot Business', '$59 / mo',     'Up to 5 users · Agencies',   'Everything in Pro · Multi-user · Team agreements'],
     ],
   },
 
-  // 24. Revenue Logic & Metrics
+  // 24a. KPIs — Part 1
   {
-    type: 'two-col',
-    eyebrow: 'Revenue & Success Metrics',
-    title: 'Why $12–$29 works — and what we watch',
-    left: {
-      heading: 'Revenue Logic',
-      badge: null,
-      badgeColor: null,
-      items: [
-        'Average freelancer invoice: $3,000–$8,000. **$29/mo is less than 0.3% of one project\'s revenue.**',
-        'One recovered late payment via reminder is worth **25 years of the Starter plan**.',
-        'The emotional cost of chasing money is the #1 pain. Users pay to **not feel that way**.',
-        '5,000 Pro users at $29/mo = **$1.74M in yearly revenue** on top of existing transaction fees.',
-        'Every SMS sent **raises the cost of leaving** — billing history and client records live inside Anchor.',
-      ],
-    },
-    right: {
-      heading: 'Signals to Watch',
-      badge: null,
-      badgeColor: null,
-      items: [
-        '**Time-to-first-send**: did a new user send a Copilot message in their first session?',
-        '**Reminder-to-payment rate**: what % of AI reminders result in payment within 48h?',
-        '**Scope change usage**: how often is "add a line item" used per active agreement?',
-        '**Starter → Pro upgrade** in 60 days: target >15%. If lower, the Pro benefits are not clear enough.',
-      ],
-    },
+    type: 'kpis',
+    eyebrow: 'Success Metrics · 1 of 2',
+    title: 'How we know it\'s working',
+    items: [
+      {
+        num: '01',
+        icon: '⚡',
+        title: 'Time to First Send',
+        measures: 'Did the user send their first Copilot message in session one?',
+        why: 'This is the activation signal. If users sign up but never text the bot, onboarding is broken — they never experienced the core value.',
+        target: '>60%',
+        targetLabel: 'activate within 24h',
+      },
+      {
+        num: '02',
+        icon: '💸',
+        title: 'Reminder-to-Payment Rate',
+        measures: 'What % of AI-sent reminders are followed by payment within 48h?',
+        why: 'We can\'t prove the reminder caused the payment — the client may have paid anyway. But if this rate is consistently higher than agreements with no reminder sent, it\'s a strong signal the feature works.',
+        target: '>35%',
+        targetLabel: 'vs. no-reminder baseline',
+      },
+    ],
+  },
+
+  // 24b. KPIs — Part 2
+  {
+    type: 'kpis',
+    eyebrow: 'Success Metrics · 2 of 2',
+    title: 'How we know it\'s working',
+    items: [
+      {
+        num: '03',
+        icon: '📝',
+        title: 'Scope Change Capture Rate',
+        measures: 'How often do active users add a line item via SMS rather than ignoring scope changes?',
+        why: 'Low usage means users either don\'t know this feature exists or don\'t trust it yet. Either way, something in discovery or onboarding needs fixing.',
+        target: '>1×',
+        targetLabel: 'per active agreement',
+      },
+      {
+        num: '04',
+        icon: '📈',
+        title: 'Starter → Pro Conversion',
+        measures: 'What % of Starter trial users convert to a paid Pro plan in month 4?',
+        why: 'Month 4 is the first month users are actually charged — measuring earlier is meaningless. Low conversion means either the Pro features aren\'t visible enough, or users didn\'t get enough value during the trial.',
+        target: '>20%',
+        targetLabel: 'of trial completers',
+      },
+    ],
   },
 
   // 25. TL;DR
@@ -535,7 +561,7 @@ export const SLIDES = [
       },
       {
         label: '05 · Business Case',
-        body: '**$12–$29/mo** add-on tier. One recovered late payment covers 25 years of Starter. At 5,000 Pro users: **$1.74M in yearly revenue** stacked on top of existing transaction fees.',
+        body: '**3 months free**, then $12–$29/mo. Key KPIs: time to first send, reminder-to-payment rate, scope change capture, and Starter → Pro upgrade. At 5,000 Pro users: **$1.74M in yearly revenue** on top of transaction fees.',
       },
       {
         label: '06 · See It Live',
