@@ -205,14 +205,6 @@ export const SLIDES = [
     ],
   },
 
-  // 13. Strategic Verdict
-  {
-    type: 'verdict',
-    eyebrow: 'Strategic Conclusion',
-    headline: '"Freelancers want better partners,\nnot better tools."',
-    subline: 'Every competitor is adding more features — better templates, faster exports, bigger dashboards. The Copilot does not add features. It adds **presence**. Anchor is now in the conversation, not waiting for the user to come back to a browser tab. It moves from a **tool you manage** to a **partner that acts for you**.',
-  },
-
   // 14. Feature Scoping — What I Want to Build
   {
     type: 'grid',
@@ -249,20 +241,46 @@ export const SLIDES = [
     type: 'table',
     eyebrow: 'Feature Prioritization · RICE Scoring',
     title: 'What ships first — and why',
-    subtitle: 'RICE = Reach × Impact × Confidence ÷ Effort. Higher score = ship first.',
-    paramNotes: [
-      { term: 'Reach', def: 'How many active Anchor users will this touch in the first quarter? Scored 1–10.' },
-      { term: 'Impact', def: 'How much does it move the needle per user? 1 = Medium, 2 = High, 3 = Massive.' },
-      { term: 'Confidence', def: 'How sure am I about Reach and Impact? Based on user evidence and technical clarity.' },
-      { term: 'Effort', def: 'Estimated person-months of engineering work to ship production-ready.' },
-    ],
+    subtitle: 'RICE = Reach × Impact × Confidence ÷ Effort. Higher score = ship first. Hover any value for the reasoning.',
     headers: ['Feature', 'Reach', 'Impact', 'Confidence', 'Effort', 'RICE Score', 'Priority'],
     highlightCol: 5,
     rows: [
-      ['Text-to-Checkout',          '9',  '2 — High',    '80%', '1 — single request-response',        '18.0', 'P0'],
-      ['Automatic Enforcement',     '10', '3 — Massive', '90%', '2 — background jobs + state machine', '15.0', 'P1'],
-      ['Scope Change Alerts',       '7',  '3 — Massive', '50%', '4 — real-time NLP + contract diff',   '4.2',  'P2'],
-      ['Auto-Invoicing from Notes', '8',  '1 — Medium',  '50%', '2 — multi-source text parsing',       '2.8',  'P2'],
+      [
+        'Text-to-Checkout',
+        { value: '9', note: 'Not 10 — some users close deals outside Anchor today. 9 reflects near-universal reach once onboarded, not the current active base.' },
+        { value: '2 — High', note: 'Not Massive — it replaces an existing flow (opening the dashboard) rather than unlocking revenue that was previously lost entirely.' },
+        { value: '80%', note: 'Not 90% — client willingness to sign via SMS link is assumed but not yet validated. The 20% gap is adoption risk, not technical risk.' },
+        { value: '1', note: 'Not 2 — single synchronous request-response. No background jobs, no async state machine. Lowest engineering complexity in the set.' },
+        '18.0',
+        'P0',
+      ],
+      [
+        'Automatic Enforcement',
+        { value: '10', note: 'Not 9 — every user with an outstanding invoice is affected. Late payment is universal, not segment-specific.' },
+        { value: '3 — Massive', note: 'Not High — this removes the hardest part of freelancing: asking for money. It doesn\'t improve a flow, it eliminates an emotional barrier.' },
+        { value: '90%', note: 'Not 80% — automated reminders are a solved problem technically. High confidence because the mechanic (send SMS when milestone is due) is straightforward and the user pain is confirmed.' },
+        { value: '2', note: 'Not 1 — requires a background job scheduler and a milestone state machine. More moving parts than Text-to-Checkout, but no novel AI complexity.' },
+        '15.0',
+        'P1',
+      ],
+      [
+        'Scope Change Alerts',
+        { value: '7', note: 'Not 9 — only affects users mid-project with active scope changes. Not every project has scope creep; this is a subset of the active user base.' },
+        { value: '3 — Massive', note: 'Not High — scope changes that go unbilled are pure revenue loss. Capturing even one per project can represent 10–30% of project value.' },
+        { value: '50%', note: 'Not 70% — two unknowns: (1) can the AI reliably detect scope-change intent from natural language, and (2) will clients approve changes via SMS rather than expecting a formal re-quote.' },
+        { value: '4', note: 'Not 2 — requires real-time NLP intent detection, contract diff logic, client-facing approval flow, and an audit trail. Significant engineering scope.' },
+        '4.2',
+        'P2',
+      ],
+      [
+        'Auto-Invoicing from Notes',
+        { value: '8', note: 'Not 10 — many freelancers already use dedicated time-tracking tools. Reach is high but not universal; some users won\'t switch their logging habit.' },
+        { value: '1 — Medium', note: 'Not High — saves admin time but doesn\'t directly unlock revenue. A faster invoice process is a convenience improvement, not a revenue recovery mechanism.' },
+        { value: '50%', note: 'Not 70% — text-to-invoice parsing accuracy is uncertain. Categorisation errors could cause billing mistakes, which erodes trust faster than the feature builds it.' },
+        { value: '2', note: 'Not 1 — multi-source text parsing plus categorisation against active project line items. More complex than a single-action trigger.' },
+        '2.8',
+        'P2',
+      ],
     ],
   },
 

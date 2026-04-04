@@ -292,16 +292,6 @@ function SlideTable({ data }) {
       <div className="pres-eyebrow">{data.eyebrow}</div>
       <h2 className="pres-slide-title">{data.title}</h2>
       {data.subtitle && <p className="pres-slide-subtitle"><RichText text={data.subtitle} /></p>}
-      {data.paramNotes && (
-        <div className="pres-param-notes">
-          {data.paramNotes.map((p, i) => (
-            <div key={i} className="pres-param-note">
-              <span className="pres-param-term">{p.term}</span>
-              <span className="pres-param-def">{p.def}</span>
-            </div>
-          ))}
-        </div>
-      )}
       {data.note && <div className="pres-table-note">{data.note}</div>}
       <div className="pres-table-wrap">
         <table className="pres-table">
@@ -315,11 +305,23 @@ function SlideTable({ data }) {
           <tbody>
             {data.rows.map((row, ri) => (
               <tr key={ri}>
-                {row.map((cell, ci) => (
-                  <td key={ci} className={data.highlightCol === ci ? 'pres-col-highlight' : ''}>
-                    <RichText text={cell} />
-                  </td>
-                ))}
+                {row.map((cell, ci) => {
+                  const isObj = cell && typeof cell === 'object';
+                  const cellClass = data.highlightCol === ci ? 'pres-col-highlight' : '';
+                  return (
+                    <td key={ci} className={`${cellClass}${isObj ? ' pres-cell-annotated' : ''}`}>
+                      {isObj ? (
+                        <span className="pres-cell-tip-wrap">
+                          <RichText text={cell.value} />
+                          <span className="pres-cell-tip-dot">?</span>
+                          <span className="pres-cell-tooltip">{cell.note}</span>
+                        </span>
+                      ) : (
+                        <RichText text={cell} />
+                      )}
+                    </td>
+                  );
+                })}
               </tr>
             ))}
           </tbody>

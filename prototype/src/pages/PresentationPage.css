@@ -592,39 +592,62 @@
 }
 
 /* ══════════════════════════════════════
-   PARAM NOTES (RICE legend)
+   CELL TOOLTIPS (RICE rationale)
 ══════════════════════════════════════ */
-.pres-param-notes {
-  display: flex;
-  gap: 6px 20px;
-  flex-wrap: wrap;
+.pres-cell-annotated { position: relative; }
+
+.pres-cell-tip-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+.pres-cell-tip-dot {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
-  padding: 10px 16px;
-  background: var(--pres-card-bg);
-  border: 1px solid var(--pres-border);
-  border-radius: 10px;
-  max-width: 1100px;
-  width: 100%;
-}
-.pres-param-note {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  font-size: clamp(11px, 1vw, 13px);
-}
-.pres-param-term {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--pres-blue);
+  color: #fff;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--pres-blue);
-  white-space: nowrap;
-  font-size: 11px;
+  cursor: default;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.15s;
 }
-.pres-param-def {
-  color: var(--pres-muted);
-  line-height: 1.4;
+.pres-cell-tip-wrap:hover .pres-cell-tip-dot { opacity: 1; }
+
+.pres-cell-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a2e;
+  color: #e8e8f0;
+  font-size: 12px;
+  line-height: 1.55;
+  padding: 10px 14px;
+  border-radius: 8px;
+  width: 260px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  z-index: 100;
+  pointer-events: none;
+  white-space: normal;
 }
+.pres-cell-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1a1a2e;
+}
+.pres-cell-tip-wrap:hover .pres-cell-tooltip { display: block; }
 
 /* ══════════════════════════════════════
    TABLE
