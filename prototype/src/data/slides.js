@@ -391,12 +391,12 @@ export const SLIDES = [
     ],
   },
 
-  // 22a. Risks — Part 1
+  // 22. Risks
   {
     type: 'risks',
-    eyebrow: 'Risk Analysis · 1 of 2',
+    eyebrow: 'Risk Analysis',
     title: 'What could go wrong',
-    subtitle: 'Honest look at the three highest-concern areas',
+    subtitle: 'Honest look at the four highest-concern areas',
     items: [
       {
         icon: '⚠️',
@@ -419,29 +419,12 @@ export const SLIDES = [
         fix: 'The **first experience must close a real deal** — not show features. Deal struck → agreement live in 3 texts. If that doesn\'t happen in session one, the product has already lost.',
         level: 'High',
       },
-    ],
-  },
-
-  // 22b. Risks — Part 2
-  {
-    type: 'risks',
-    eyebrow: 'Risk Analysis · 2 of 2',
-    title: 'What could go wrong',
-    subtitle: 'Two remaining risks — both manageable',
-    items: [
       {
         icon: '🔒',
         title: 'Data Security & GDPR',
-        risk: 'Every SMS the freelancer sends passes through an **AI processing layer** — meaning billing amounts, client names, and agreement details are all handled outside Anchor\'s own infrastructure, creating **GDPR and data retention exposure**.',
-        fix: '**Raw messages are never stored** after processing. Anchor\'s existing data policies already cover the agreement and payment data — the AI layer only reads, never persists.',
+        risk: 'Every SMS the freelancer sends passes through an **AI processing layer** — meaning billing amounts, client names, and agreement details are processed outside Anchor\'s own infrastructure. This creates **GDPR and data retention exposure**, including at the AI provider level.',
+        fix: 'The application never stores raw messages after processing. All AI processing runs through the Claude API under **Anthropic\'s Data Processing Agreement** — customers operating under GDPR should verify Anthropic\'s data retention commitments before enabling the Copilot.',
         level: 'Low–Medium',
-      },
-      {
-        icon: '🏁',
-        title: 'Competitive Response',
-        risk: 'Once the SMS Copilot ships and gains traction, a competitor like HoneyBook or Bonsai could build a **similar chat interface in 6–12 months** — potentially closing the gap before Anchor locks in retention.',
-        fix: 'The window to act is **before competitors respond**. Every deal closed through the Copilot adds client history, agreement records, and payment trails inside Anchor — building **stickiness** that makes it increasingly costly to leave. The goal is to establish that stickiness before a HoneyBook SMS feature ships.',
-        level: 'Low',
       },
     ],
   },
