@@ -311,10 +311,9 @@ function SlideTable({ data }) {
                   return (
                     <td key={ci} className={`${cellClass}${isObj ? ' pres-cell-annotated' : ''}`}>
                       {isObj ? (
-                        <span className="pres-cell-tip-wrap">
-                          <RichText text={cell.value} />
-                          <span className="pres-cell-tip-dot">?</span>
-                          <span className="pres-cell-tooltip">{cell.note}</span>
+                        <span className="pres-cell-annotated-inline">
+                          <span className="pres-cell-value"><RichText text={cell.value} /></span>
+                          <span className="pres-cell-note">{cell.note}</span>
                         </span>
                       ) : (
                         <RichText text={cell} />
