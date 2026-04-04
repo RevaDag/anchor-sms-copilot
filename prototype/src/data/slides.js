@@ -271,7 +271,7 @@ export const SLIDES = [
       {
         icon: '📤',
         title: 'Text-to-Checkout',
-        body: 'Every deal texted to the Copilot produces a **clean, branded payment checkout** automatically. No templates to fill, no formatting — the text message becomes the billing event.',
+        body: '**Use at the start of a project.** Verbal deal struck? Text it to the Copilot — "Draft a $4k agreement with Rachel, 50% upfront." The AI creates a **live, signable agreement** with milestone locks and sends Rachel a payment checkout link. The conversation becomes the contract.',
       },
       {
         icon: '🔒',
@@ -286,7 +286,7 @@ export const SLIDES = [
       {
         icon: '🧾',
         title: 'Auto-Invoicing from Notes',
-        body: 'Text a raw summary: "4 hours consulting, 2 hours design." The AI reads it, categorizes it, and **queues an invoice**. Admin time drops from minutes to a single message.',
+        body: '**Use while the work is running.** Text a raw work log — "4 hours consulting, 2 hours design today." The AI reads it, categorizes the work against the active project, and **queues an invoice**. No dashboard, no time-tracking app — the update becomes the bill.',
       },
     ],
   },
