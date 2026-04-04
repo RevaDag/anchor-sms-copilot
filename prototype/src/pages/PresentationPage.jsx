@@ -291,7 +291,7 @@ function SlideTable({ data }) {
     <div className="pres-generic-slide">
       <div className="pres-eyebrow">{data.eyebrow}</div>
       <h2 className="pres-slide-title">{data.title}</h2>
-      {data.subtitle && <p className="pres-slide-subtitle">{data.subtitle}</p>}
+      {data.subtitle && <p className="pres-slide-subtitle"><RichText text={data.subtitle} /></p>}
       {data.note && <div className="pres-table-note">{data.note}</div>}
       <div className="pres-table-wrap">
         <table className="pres-table">
@@ -448,7 +448,9 @@ const RISK_LEVEL_COLOR = {
 };
 
 function SlideRisks({ data }) {
-  const colClass = data.items.length === 2 ? 'pres-risks-grid-2' : 'pres-risks-grid-3';
+  const colClass = data.items.length === 4 ? 'pres-risks-grid-4'
+    : data.items.length === 2 ? 'pres-risks-grid-2'
+    : 'pres-risks-grid-3';
   return (
     <div className="pres-generic-slide">
       <div className="pres-eyebrow">{data.eyebrow}</div>

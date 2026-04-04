@@ -148,6 +148,10 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+/* When content is taller than the viewport, anchor to top so scrolling works */
+.pres-slide > * {
+  margin-block: auto;
+}
 
 @keyframes presSlideIn {
   from { opacity: 0; }
@@ -369,20 +373,20 @@
 .pres-kpi-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   width: 100%;
   max-width: 1100px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .pres-kpi-card {
   display: grid;
-  grid-template-columns: 260px 1fr 160px;
+  grid-template-columns: 220px 1fr 150px;
   align-items: stretch;
   background: var(--pres-card-bg);
   border: 1px solid var(--pres-border);
   border-left: 4px solid var(--pres-blue);
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
   animation: presEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -392,8 +396,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 8px;
-  padding: 24px 28px;
+  gap: 6px;
+  padding: 16px 20px;
   border-right: 1px solid var(--pres-border);
   background: rgba(20, 50, 255, 0.025);
 }
@@ -421,14 +425,14 @@
   flex-direction: column;
   justify-content: center;
   gap: 0;
-  padding: 20px 28px;
+  padding: 14px 22px;
 }
 .pres-kpi-row {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 110px 1fr;
   gap: 10px;
   align-items: baseline;
-  padding: 10px 0;
+  padding: 8px 0;
 }
 .pres-kpi-row + .pres-kpi-row {
   border-top: 1px solid var(--pres-border);
@@ -443,9 +447,9 @@
   padding-top: 2px;
 }
 .pres-kpi-row-body {
-  font-size: clamp(14px, 1.35vw, 17px);
+  font-size: clamp(13px, 1.2vw, 15px);
   color: var(--pres-muted);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .pres-kpi-right {
@@ -454,13 +458,13 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 24px 20px;
+  padding: 16px 16px;
   border-left: 1px solid var(--pres-border);
   background: var(--pres-blue-dim);
-  gap: 6px;
+  gap: 4px;
 }
 .pres-kpi-target-num {
-  font-size: clamp(28px, 3vw, 42px);
+  font-size: clamp(24px, 2.5vw, 36px);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--pres-blue);
@@ -489,6 +493,12 @@
 }
 .pres-risks-grid-3 { grid-template-columns: repeat(3, 1fr); }
 .pres-risks-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 820px; }
+.pres-risks-grid-4 { grid-template-columns: repeat(4, 1fr); column-gap: 10px; }
+.pres-risks-grid-4 .pres-risk-card-header { padding: 14px 14px 10px; }
+.pres-risks-grid-4 .pres-risk-section { padding: 10px 14px 12px; }
+.pres-risks-grid-4 .pres-risk-icon { font-size: clamp(20px, 1.8vw, 26px); }
+.pres-risks-grid-4 .pres-risk-title { font-size: clamp(14px, 1.3vw, 18px); }
+.pres-risks-grid-4 .pres-risk-section-body { font-size: clamp(12px, 1.1vw, 14px); line-height: 1.55; }
 
 .pres-risk-card {
   /* span all 3 row tracks and use subgrid so children align across columns */
@@ -506,6 +516,7 @@
 .pres-risk-card:nth-child(1) { animation-delay: 160ms; }
 .pres-risk-card:nth-child(2) { animation-delay: 260ms; }
 .pres-risk-card:nth-child(3) { animation-delay: 360ms; }
+.pres-risk-card:nth-child(4) { animation-delay: 460ms; }
 
 .pres-risk-card-header {
   display: flex;
