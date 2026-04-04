@@ -462,11 +462,13 @@ function SlideRisks({ data }) {
           return (
             <div key={i} className="pres-risk-card" style={{ '--risk-border': lvl.border }} >
               <div className="pres-risk-card-header">
-                <span className="pres-risk-icon">{item.icon}</span>
-                <span className="pres-risk-title">{item.title}</span>
                 <span className="pres-risk-level-badge" style={{ background: lvl.badge, color: lvl.text }}>
                   {item.level}
                 </span>
+                <div className="pres-risk-title-row">
+                  <span className="pres-risk-icon">{item.icon}</span>
+                  <span className="pres-risk-title">{item.title}</span>
+                </div>
               </div>
               <div className="pres-risk-section pres-risk-section--risk">
                 <div className="pres-risk-section-label">Risk</div>

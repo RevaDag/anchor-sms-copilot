@@ -458,17 +458,23 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 16px 16px;
+  padding: 16px 12px;
   border-left: 1px solid var(--pres-border);
   background: var(--pres-blue-dim);
   gap: 4px;
+  overflow: hidden;
+  min-width: 0;
 }
 .pres-kpi-target-num {
-  font-size: clamp(24px, 2.5vw, 36px);
+  font-size: clamp(18px, 1.8vw, 28px);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--pres-blue);
-  line-height: 1;
+  line-height: 1.15;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+  width: 100%;
 }
 .pres-kpi-target-label {
   font-size: 12px;
@@ -520,10 +526,16 @@
 
 .pres-risk-card-header {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px 18px 12px;
+}
+.pres-risk-title-row {
+  display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding: 20px 22px 16px;
+  gap: 8px;
+  width: 100%;
 }
 .pres-risk-icon {
   font-size: clamp(26px, 2.5vw, 34px);
