@@ -155,7 +155,7 @@ export const SLIDES = [
         body: 'Turning a deal into a structured invoice is **tedious**. Scope changes over text or call have no billing path — they just disappear.',
       },
       {
-        icon: '⏱',
+        icon: '🕐',
         title: 'Admin Overhead',
         body: 'Checking dashboards, logging time, and managing invoices **pulls freelancers away from actual work**. Anchor currently feels "heavy" — built for accountants, not solo creatives.',
       },
