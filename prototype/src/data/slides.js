@@ -104,9 +104,31 @@ export const SLIDES = [
   // 6. Overview
   {
     type: 'overview',
-    eyebrow: 'Overview',
-    context: 'Anchor helps small businesses get **paid faster**. But even with great tools, freelancers still face a big hurdle — the gap between making a deal and getting money.',
-    proposal: 'The Anchor **SMS Copilot** removes that gap. Freelancers can draft agreements, update scope, and send payment reminders — just by **sending a text**. No dashboard. No login.',
+    eyebrow: 'The Product',
+    headline: 'Anchor — billing infrastructure for freelancers',
+    descriptor: 'Anchor handles everything between "we have a deal" and "I got paid." Agreements, milestone locks, invoices, and payments — in one place, built for the way freelancers actually work.',
+    pillars: [
+      {
+        icon: '📄',
+        label: 'Binding Agreements',
+        body: 'Send a legally binding agreement from a link. Clients review and sign in seconds — no PDFs, no DocuSign, no back-and-forth.',
+      },
+      {
+        icon: '🔒',
+        label: 'Milestone Locks',
+        body: 'Work is automatically gated behind payment. The system enforces the contract — the freelancer never has to ask for money.',
+      },
+      {
+        icon: '💳',
+        label: 'Instant Invoicing',
+        body: 'Turn any deal into a clean, branded payment request in minutes. Anchor handles the billing engine so freelancers handle the work.',
+      },
+      {
+        icon: '📊',
+        label: 'Payment Tracking',
+        body: 'Every agreement, overdue invoice, and pending milestone in a single dashboard. No spreadsheets, no chasing, no surprises.',
+      },
+    ],
   },
 
   // 7. The Problem
@@ -211,17 +233,11 @@ export const SLIDES = [
         title: 'Bookipi / Manus AI',
         body: 'AI that generates invoices from simple prompts. Fast and cheap. But they output a **PDF, not a system** — no milestone locks, no payment rails, no legal structure.',
       },
-      {
-        icon: '🔍',
-        title: 'The Shared Weakness',
-        body: 'The Giants are **complex**. The Processors are **transactional**. The AI Newcomers are **shallow**. None combine a **simple SMS interface** with **binding agreements** and **real-time updates**.',
-      },
-      {
-        icon: '🎯',
-        title: 'The Opening',
-        body: 'Anchor already has the **billing engine**, **milestone locks**, and **legal agreements**. The missing piece is a **simple front door**: text-based, mobile, instant.',
-      },
     ],
+    insight: {
+      weakness: 'The Giants are **complex**. The Processors are **transactional**. The AI Newcomers are **shallow**. None combine a **simple SMS interface** with **binding agreements** and **real-time updates**.',
+      opening: 'Anchor already has the **billing engine**, **milestone locks**, and **legal agreements**. The missing piece is a **simple front door**: text-based, mobile, instant.',
+    },
   },
 
   // 11. Competitive Gap table

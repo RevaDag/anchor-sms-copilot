@@ -304,6 +304,48 @@
   font-weight: 400;
 }
 
+/* Grid insight bar — weakness + opening strip below competitor cards */
+.pres-grid-insight {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--pres-border);
+  background: var(--pres-card-bg);
+  animation: presEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) 480ms both;
+}
+.pres-grid-insight-half {
+  flex: 1;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pres-grid-insight-half--weakness {
+  background: color-mix(in srgb, var(--pres-card-bg) 92%, #C77C1A 8%);
+}
+.pres-grid-insight-half--opening {
+  background: color-mix(in srgb, var(--pres-card-bg) 92%, #007A50 8%);
+}
+.pres-grid-insight-divider {
+  width: 1px;
+  background: var(--pres-border);
+}
+.pres-grid-insight-label {
+  font-size: clamp(13px, 1.15vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--pres-fg);
+}
+.pres-grid-insight-body {
+  font-size: clamp(13px, 1.2vw, 15px);
+  color: var(--pres-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* 3-col grids (e.g. Technical Architecture) — larger cards for readability */
 .pres-grid-3 .pres-card {
   padding: 30px 28px;
@@ -1021,56 +1063,66 @@
 /* ══════════════════════════════════════
    OVERVIEW SLIDE
 ══════════════════════════════════════ */
-.pres-overview-blocks {
+.pres-overview-slide {
+  gap: 0;
+}
+.pres-overview-headline {
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 800;
+  color: var(--pres-text);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 12px 0 16px;
+  animation: presEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+.pres-overview-descriptor {
+  font-size: clamp(15px, 1.45vw, 19px);
+  color: var(--pres-muted);
+  line-height: 1.7;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 400;
+  margin: 0 0 32px;
+  max-width: 780px;
+  animation: presEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) 200ms both;
+}
+.pres-overview-pillars {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   width: 100%;
   max-width: 1080px;
-  margin-top: 16px;
-  align-items: stretch;
 }
-.pres-overview-block {
+.pres-overview-pillar {
   background: var(--pres-card-bg);
   border: 1px solid var(--pres-border);
-  border-radius: 16px;
-  padding: 32px 36px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  border-top: 3px solid var(--pres-blue);
+  border-radius: 14px;
+  padding: 24px 22px 26px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
   animation: presEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.pres-overview-context {
-  border-top: 4px solid var(--pres-border);
-  animation-delay: 200ms;
+.pres-overview-pillar-icon {
+  font-size: 26px;
+  line-height: 1;
 }
-.pres-overview-proposal {
-  border-top: 4px solid var(--pres-blue);
-  animation-delay: 360ms;
-}
-.pres-overview-block-label {
-  font-size: 11px;
+.pres-overview-pillar-label {
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--pres-dim);
-  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+  color: var(--pres-text);
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-style: normal;
 }
-.pres-overview-proposal .pres-overview-block-label {
-  color: var(--pres-blue);
-}
-.pres-overview-text {
-  font-size: clamp(17px, 1.7vw, 22px);
+.pres-overview-pillar-body {
+  font-size: clamp(12px, 1.1vw, 14px);
   color: var(--pres-muted);
-  line-height: 1.78;
+  line-height: 1.65;
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 400;
   margin: 0;
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-style: normal;
-  text-align: left;
-}
-.pres-overview-proposal .pres-overview-text {
-  color: var(--pres-text);
 }
 
 /* ══════════════════════════════════════
@@ -1497,7 +1549,7 @@
 
   /* Stack two-col layouts */
   .pres-two-col        { grid-template-columns: 1fr; gap: 12px; }
-  .pres-overview-blocks { grid-template-columns: 1fr; gap: 12px; }
+  .pres-overview-pillars { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .pres-assignment-body { grid-template-columns: 1fr; gap: 12px; }
   .pres-tldr-grid      { grid-template-columns: repeat(2, 1fr); }
   .pres-next-hint      { display: none; }

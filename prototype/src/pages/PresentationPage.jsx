@@ -188,17 +188,18 @@ function SlideSection({ data }) {
 
 function SlideOverview({ data }) {
   return (
-    <div className="pres-generic-slide">
+    <div className="pres-generic-slide pres-overview-slide">
       <div className="pres-eyebrow">{data.eyebrow}</div>
-      <div className="pres-overview-blocks">
-        <div className="pres-overview-block pres-overview-context">
-          <div className="pres-overview-block-label">Context</div>
-          <p className="pres-overview-text"><RichText text={data.context} /></p>
-        </div>
-        <div className="pres-overview-block pres-overview-proposal">
-          <div className="pres-overview-block-label">The Proposal</div>
-          <p className="pres-overview-text"><RichText text={data.proposal} /></p>
-        </div>
+      <h2 className="pres-overview-headline">{data.headline}</h2>
+      <p className="pres-overview-descriptor">{data.descriptor}</p>
+      <div className="pres-overview-pillars">
+        {data.pillars.map((p, i) => (
+          <div key={i} className="pres-overview-pillar" style={{ animationDelay: `${180 + i * 100}ms` }}>
+            <span className="pres-overview-pillar-icon">{p.icon}</span>
+            <div className="pres-overview-pillar-label">{p.label}</div>
+            <p className="pres-overview-pillar-body">{p.body}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -281,6 +282,19 @@ function SlideGrid({ data }) {
           </div>
         ))}
       </div>
+      {data.insight && (
+        <div className="pres-grid-insight">
+          <div className="pres-grid-insight-half pres-grid-insight-half--weakness">
+            <span className="pres-grid-insight-label">🔍 The Shared Weakness</span>
+            <p className="pres-grid-insight-body"><RichText text={data.insight.weakness} /></p>
+          </div>
+          <div className="pres-grid-insight-divider" />
+          <div className="pres-grid-insight-half pres-grid-insight-half--opening">
+            <span className="pres-grid-insight-label">🎯 The Opening</span>
+            <p className="pres-grid-insight-body"><RichText text={data.insight.opening} /></p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
