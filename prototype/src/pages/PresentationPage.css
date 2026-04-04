@@ -602,11 +602,12 @@
 .pres-cell-value {
   font-weight: 700;
   color: var(--pres-text);
+  font-size: clamp(14px, 1.35vw, 17px);
 }
 .pres-cell-note {
-  font-size: 11px;
+  font-size: clamp(12px, 1.05vw, 14px);
   color: var(--pres-dim);
-  line-height: 1.4;
+  line-height: 1.45;
   font-weight: 400;
 }
 
@@ -657,33 +658,33 @@
 .pres-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: clamp(13px, 1.15vw, 15px);
+  font-size: clamp(14px, 1.4vw, 17px);
 }
 .pres-table thead tr { background: var(--pres-text); }
 .pres-table th {
   color: #FFFFFF;
   font-weight: 700;
-  padding: 12px 16px;
+  padding: 14px 18px;
   text-align: left;
   border: none;
   white-space: nowrap;
-  font-size: clamp(11px, 0.95vw, 13px);
+  font-size: clamp(12px, 1.1vw, 14px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .pres-table td {
-  padding: 12px 16px;
+  padding: 16px 18px;
   border-bottom: 1px solid var(--pres-border);
   color: var(--pres-muted);
   vertical-align: top;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.55;
   background: #FFFFFF;
 }
 .pres-table td:first-child {
   color: var(--pres-text);
   font-weight: 600;
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(14px, 1.3vw, 16px);
   letter-spacing: 0.02em;
   white-space: nowrap;
   background: #F7F6F2 !important;
