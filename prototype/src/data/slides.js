@@ -300,10 +300,10 @@ export const SLIDES = [
     headers: ['Feature', 'Reach', 'Impact', 'Confidence', 'Effort', 'RICE Score', 'Priority'],
     highlightCol: 5,
     rows: [
-      ['Text-to-Checkout',        '9', '2 — High',    '80%', '1', '18.0', 'P0'],
-      ['Automatic Enforcement',   '10', '3 — Massive', '90%', '2', '15.0', 'P1'],
-      ['Scope Change Alerts',     '7',  '3 — Massive', '50%', '4', '4.2',  'P2'],
-      ['Auto-Invoicing from Notes', '8', '1 — Medium', '50%', '2', '2.8',  'P2'],
+      ['Text-to-Checkout',          '9',  '2 — High',    '80%', '1 — single request-response',        '18.0', 'P0'],
+      ['Automatic Enforcement',     '10', '3 — Massive', '90%', '2 — background jobs + state machine', '15.0', 'P1'],
+      ['Scope Change Alerts',       '7',  '3 — Massive', '50%', '4 — real-time NLP + contract diff',   '4.2',  'P2'],
+      ['Auto-Invoicing from Notes', '8',  '1 — Medium',  '50%', '2 — multi-source text parsing',       '2.8',  'P2'],
     ],
   },
 
