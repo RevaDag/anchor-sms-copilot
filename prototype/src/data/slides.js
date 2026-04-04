@@ -241,8 +241,8 @@ export const SLIDES = [
     type: 'table',
     eyebrow: 'Feature Prioritization · RICE Scoring',
     title: 'What ships first — and why',
-    subtitle: 'RICE = Reach × Impact × Confidence ÷ Effort. Higher score = ship first. Hover any value for the reasoning.',
-    headers: ['Feature', 'Reach', 'Impact', 'Confidence', 'Effort', 'RICE Score', 'Priority'],
+    subtitle: 'RICE = Reach × Impact × Confidence ÷ Effort. Higher score = ship first.',
+    headers: ['Feature', 'Reach', 'Impact', 'Confidence', 'Effort', 'RICE Score'],
     highlightCol: 5,
     rows: [
       [
@@ -252,7 +252,6 @@ export const SLIDES = [
         { value: '80%', note: '**Client SMS signing** assumed, not yet validated' },
         { value: '1', note: '**Single request-response** — no background jobs' },
         '18.0',
-        'P0',
       ],
       [
         'Automatic Enforcement',
@@ -261,7 +260,6 @@ export const SLIDES = [
         { value: '90%', note: '**Mechanically simple** — user pain confirmed across reviews' },
         { value: '2', note: '**Background scheduler** + milestone state machine required' },
         '15.0',
-        'P1',
       ],
       [
         'Scope Change Alerts',
@@ -270,7 +268,6 @@ export const SLIDES = [
         { value: '50%', note: '**AI intent detection** + client SMS approval both unvalidated' },
         { value: '4', note: '**NLP + contract diff** + client approval flow + audit trail' },
         '4.2',
-        'P2',
       ],
       [
         'Auto-Invoicing from Notes',
@@ -279,7 +276,6 @@ export const SLIDES = [
         { value: '50%', note: '**Parsing errors** could cause billing mistakes, eroding trust' },
         { value: '2', note: '**Text parsing** + categorisation against active line items' },
         '2.8',
-        'P2',
       ],
     ],
   },
