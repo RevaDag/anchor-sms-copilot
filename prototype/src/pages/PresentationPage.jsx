@@ -282,19 +282,6 @@ function SlideGrid({ data }) {
           </div>
         ))}
       </div>
-      {data.insight && (
-        <div className="pres-grid-insight">
-          <div className="pres-grid-insight-half pres-grid-insight-half--weakness">
-            <span className="pres-grid-insight-label">🔍 The Shared Weakness</span>
-            <p className="pres-grid-insight-body"><RichText text={data.insight.weakness} /></p>
-          </div>
-          <div className="pres-grid-insight-divider" />
-          <div className="pres-grid-insight-half pres-grid-insight-half--opening">
-            <span className="pres-grid-insight-label">🎯 The Opening</span>
-            <p className="pres-grid-insight-body"><RichText text={data.insight.opening} /></p>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
