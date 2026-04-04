@@ -316,20 +316,6 @@ function SlideTable({ data }) {
         </table>
       </div>
       {data.disclaimer && <p className="pres-table-disclaimer">{data.disclaimer}</p>}
-      {data.winReasons && (
-        <div className="pres-win-reasons">
-          <div className="pres-win-reasons-label">Why Anchor wins</div>
-          <div className="pres-win-reasons-grid">
-            {data.winReasons.map((r, i) => (
-              <div key={i} className="pres-win-reason-card">
-                <span className="pres-win-reason-num">{r.num}</span>
-                <div className="pres-win-reason-title">{r.title}</div>
-                <div className="pres-win-reason-body"><RichText text={r.body} /></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

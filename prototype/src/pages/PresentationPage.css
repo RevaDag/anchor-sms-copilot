@@ -615,31 +615,41 @@
 .pres-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: clamp(15px, 1.3vw, 17px);
+  font-size: clamp(13px, 1.15vw, 15px);
 }
 .pres-table thead tr { background: var(--pres-text); }
 .pres-table th {
   color: #FFFFFF;
   font-weight: 700;
-  padding: 14px 18px;
+  padding: 12px 16px;
   text-align: left;
   border: none;
   white-space: nowrap;
-  font-size: clamp(12px, 1.05vw, 14px);
+  font-size: clamp(11px, 0.95vw, 13px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .pres-table td {
-  padding: 13px 18px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--pres-border);
-  color: var(--pres-text);
-  vertical-align: middle;
+  color: var(--pres-muted);
+  vertical-align: top;
   font-weight: 400;
+  line-height: 1.5;
   background: #FFFFFF;
+}
+.pres-table td:first-child {
+  color: var(--pres-text);
+  font-weight: 600;
+  font-size: clamp(12px, 1vw, 14px);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  background: #F7F6F2 !important;
 }
 .pres-table tr:last-child td { border-bottom: none; }
 .pres-table tbody tr:nth-child(even) td { background: #FAFAF8; }
 .pres-table tbody tr:hover td { background: rgba(20, 50, 255, 0.03); }
+.pres-table tbody tr:hover td:first-child { background: #F0EFE9 !important; }
 .pres-table th.pres-col-highlight {
   background: var(--pres-blue) !important;
   color: #ffffff !important;
@@ -648,7 +658,7 @@
 }
 .pres-table td.pres-col-highlight {
   color: var(--pres-blue) !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   background: rgba(20, 50, 255, 0.05) !important;
 }
 .pres-table tbody tr {
@@ -661,52 +671,6 @@
 .pres-table tbody tr:nth-child(5) { animation-delay: 500ms; }
 .pres-table tbody tr:nth-child(6) { animation-delay: 560ms; }
 
-/* Win reasons strip — below competitive table */
-.pres-win-reasons {
-  margin-top: 14px;
-  animation: presEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) 580ms both;
-}
-.pres-win-reasons-label {
-  font-size: clamp(10px, 0.9vw, 12px);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--pres-blue);
-  margin-bottom: 8px;
-}
-.pres-win-reasons-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-.pres-win-reason-card {
-  background: var(--pres-blue-dim);
-  border: 1px solid rgba(20, 50, 255, 0.18);
-  border-radius: 10px;
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.pres-win-reason-num {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--pres-blue);
-  opacity: 0.7;
-}
-.pres-win-reason-title {
-  font-size: clamp(13px, 1.1vw, 15px);
-  font-weight: 700;
-  color: var(--pres-text);
-  line-height: 1.3;
-}
-.pres-win-reason-body {
-  font-size: clamp(12px, 1vw, 13px);
-  color: var(--pres-muted);
-  line-height: 1.55;
-  margin: 0;
-}
 
 /* ══════════════════════════════════════
    STEPS
