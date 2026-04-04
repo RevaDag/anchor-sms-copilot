@@ -6,11 +6,11 @@ import './PresentationPage.css';
 const INDEX_GROUPS = [
   { label: 'Intro',          slides: [0, 1, 2, 3] },
   { label: 'The Submission', slides: [4, 5] },
-  { label: 'Research',       slides: [6, 7, 8, 9, 10, 11, 12] },
-  { label: 'Prioritization', slides: [13, 14] },
-  { label: 'Technical',      slides: [15, 16, 17, 18, 19] },
-  { label: 'Business',       slides: [21, 22, 23, 24] },
-  { label: 'Wrap-up',        slides: [25, 26] },
+  { label: 'Research',       slides: [6, 7, 8, 9, 10, 11] },
+  { label: 'Prioritization', slides: [12, 13] },
+  { label: 'Technical',      slides: [14, 15, 16, 17, 18] },
+  { label: 'Business',       slides: [19, 20, 21, 22, 23] },
+  { label: 'Wrap-up',        slides: [24, 25] },
 ];
 
 function getSlideLabel(slide) {
@@ -319,7 +319,9 @@ function SlideTable({ data }) {
             {data.rows.map((row, ri) => (
               <tr key={ri}>
                 {row.map((cell, ci) => (
-                  <td key={ci} className={data.highlightCol === ci ? 'pres-col-highlight' : ''}>{cell}</td>
+                  <td key={ci} className={data.highlightCol === ci ? 'pres-col-highlight' : ''}>
+                    <RichText text={cell} />
+                  </td>
                 ))}
               </tr>
             ))}
@@ -327,6 +329,20 @@ function SlideTable({ data }) {
         </table>
       </div>
       {data.disclaimer && <p className="pres-table-disclaimer">{data.disclaimer}</p>}
+      {data.winReasons && (
+        <div className="pres-win-reasons">
+          <div className="pres-win-reasons-label">Why Anchor wins</div>
+          <div className="pres-win-reasons-grid">
+            {data.winReasons.map((r, i) => (
+              <div key={i} className="pres-win-reason-card">
+                <span className="pres-win-reason-num">{r.num}</span>
+                <div className="pres-win-reason-title">{r.title}</div>
+                <div className="pres-win-reason-body"><RichText text={r.body} /></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

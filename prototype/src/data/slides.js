@@ -234,56 +234,51 @@ export const SLIDES = [
         body: 'AI that generates invoices from simple prompts. Fast and cheap. But they output a **PDF, not a system** — no milestone locks, no payment rails, no legal structure.',
       },
     ],
-    insight: {
-      weakness: 'The Giants are **complex**. The Processors are **transactional**. The AI Newcomers are **shallow**. None combine a **simple SMS interface** with **binding agreements** and **real-time updates**.',
-      opening: 'Anchor already has the **billing engine**, **milestone locks**, and **legal agreements**. The missing piece is a **simple front door**: text-based, mobile, instant.',
-    },
   },
 
-  // 11. Competitive Gap table
+  // 11. Competitive Gap table + Why Anchor Wins
   {
     type: 'table',
     eyebrow: 'Competitive Analysis',
-    title: 'Where the market falls short',
+    title: 'Where the market falls short — and where Anchor wins',
     subtitle: 'Anchor is the only platform that combines an enforced billing engine with a conversational interface',
     headers: ['Capability', 'HoneyBook', 'Stripe', 'Bookipi / AI', 'Anchor SMS'],
     highlightCol: 4,
     rows: [
-      ['Primary interface',     'Desktop dashboard', 'Mobile / web',   'Simple web UI',  'SMS (native)'],
-      ['Agreement speed',       'Slow — templates',  'Manual entry',   'Fast (AI prompt)', 'Instant — one text'],
-      ['Scope change handling', 'Manual re-edit',    'New invoice',    'Basic',            'Live line item + client SMS'],
-      ['Payment enforcement',   'Medium (reminders)', 'None',          'Two reminders only', 'Automated milestone lock'],
+      [
+        'Primary interface',
+        '**Desktop-first dashboard** — complex layout, requires login, template setup before sending anything',
+        '**API & payment portal** — developer-focused, no client conversation layer or agreement support',
+        '**One-shot web UI** — fast entry, but single-generation with no persistent context or history',
+        '**Native SMS** — no app, no login, works from any phone in under 60 seconds',
+      ],
+      [
+        'Agreement speed',
+        '**Slow** — fill templates, upload branding, share link, wait for client signature',
+        '**Manual entry** — build a payment link separately; no contract tied to the charge',
+        '**Fast via AI prompt** — but output is a **PDF file**, not a live billing event inside a system',
+        '**Instant** — one text creates a live, signable agreement in Anchor',
+      ],
+      [
+        'Scope change handling',
+        '**Manual re-edit** — reopen the contract, update the scope, resend link, get re-signed',
+        '**New invoice** — creates a separate charge with no link to the original agreement',
+        '**Not supported** — single-shot generation only; no amendment or approval flow',
+        '**Live line item over SMS** — client approves by text, **audit trail auto-locked**',
+      ],
+      [
+        'Payment enforcement',
+        '**Email reminders only** — freelancer still manually tracks, follows up, and absorbs the awkwardness',
+        '**None** — sends a payment request but no milestone gating or blocking mechanism',
+        '**Two reminders max** — no enforcement, no milestone locks, no follow-through',
+        '**Automated milestone lock** — system blocks next phase until payment clears',
+      ],
     ],
-  },
-
-  // 12. The Opportunity
-  {
-    type: 'grid',
-    eyebrow: 'Strategic Opportunity',
-    title: 'Four reasons Anchor wins',
-    subtitle: 'Anchor wins by being the only billing tool a freelancer never has to open',
-    columns: 2,
-    items: [
-      {
-        icon: '01',
-        title: 'Automatic Enforcement',
-        body: 'The **system** — not the freelancer — sends the payment block. Milestone locks are automatic. The human relationship stays friendly.',
-      },
-      {
-        icon: '02',
-        title: 'Scope Change Capture',
-        body: 'Client asks for extra work? Text the bot. The AI adds the **extra charge**, texts the client, and gets their approval — all without opening a dashboard.',
-      },
-      {
-        icon: '03',
-        title: 'Auto-Invoicing from Notes',
-        body: '"Did 4 hours of consulting today." The AI reads the message, categorizes it, and **queues the invoice**. Admin time drops from minutes to a single text.',
-      },
-      {
-        icon: '04',
-        title: 'Solving the "Anchor Gap"',
-        body: 'Some users said Anchor feels built for accountants. The Copilot fixes this: **SMS means no formatting required** — every deal becomes a clean, branded checkout.',
-      },
+    winReasons: [
+      { num: '01', title: 'Automatic Enforcement', body: 'The **system** sends the payment block — not the freelancer. Milestone locks protect the project **and** the relationship.' },
+      { num: '02', title: 'Scope Change Capture', body: 'Text "Add $300 for revisions." AI adds the line item, notifies the client, logs approval — **no dashboard needed**.' },
+      { num: '03', title: 'Auto-Invoicing', body: '"4 hours consulting today." AI reads it, **queues the invoice**. Admin time drops from minutes to a single message.' },
+      { num: '04', title: 'No Friction', body: '**SMS = no login, no templates, no formatting.** Every deal becomes a clean, branded checkout — instantly.' },
     ],
   },
 
