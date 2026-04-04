@@ -189,53 +189,6 @@ export const SLIDES = [
     },
   },
 
-  // 9. Market: The Giants
-  {
-    type: 'grid',
-    eyebrow: 'Competitive Landscape',
-    title: 'The Giants: HoneyBook, Bonsai, Moxie',
-    subtitle: '"All-in-One" platforms with deep automation — and deep complexity',
-    columns: 3,
-    items: [
-      {
-        icon: '🍯',
-        title: 'HoneyBook',
-        body: 'Full CRM + contracts + invoicing + scheduling. **Powerful, but complex** — using it feels like a second job. Built for an office team, not a solo creator.',
-      },
-      {
-        icon: '🌿',
-        title: 'Bonsai',
-        body: 'Clean contracts, time tracking, tax help. Great design — but **desktop-first** and requires manual data entry for every action. No way to talk to it.',
-      },
-      {
-        icon: '🧲',
-        title: 'Moxie',
-        body: 'Great calendar + client portal. Built for structured agencies — **too much** for a solo freelancer managing 3–5 active agreements.',
-      },
-    ],
-  },
-
-  // 10. Market: Processors & AI Newcomers
-  {
-    type: 'grid',
-    eyebrow: 'Competitive Landscape',
-    title: 'Processors & AI Newcomers',
-    subtitle: 'Infrastructure tools and new AI products reshaping the edges — but missing the core',
-    columns: 2,
-    items: [
-      {
-        icon: '💳',
-        title: 'Stripe / FreshBooks',
-        body: 'Best-in-class payments and bookkeeping. But **no client communication**, no agreement layer. They are the "cash register" — they wait for you to bring them the deal.',
-      },
-      {
-        icon: '🤖',
-        title: 'Bookipi / Manus AI',
-        body: 'AI that generates invoices from simple prompts. Fast and cheap. But they output a **PDF, not a system** — no milestone locks, no payment rails, no legal structure.',
-      },
-    ],
-  },
-
   // 11. Competitive Gap table + Why Anchor Wins
   {
     type: 'table',
