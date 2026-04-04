@@ -313,7 +313,7 @@ function SlideTable({ data }) {
                       {isObj ? (
                         <span className="pres-cell-annotated-inline">
                           <span className="pres-cell-value"><RichText text={cell.value} /></span>
-                          <span className="pres-cell-note">{cell.note}</span>
+                          <span className="pres-cell-note"><RichText text={cell.note} /></span>
                         </span>
                       ) : (
                         <RichText text={cell} />
