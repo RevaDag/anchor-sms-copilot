@@ -292,6 +292,16 @@ function SlideTable({ data }) {
       <div className="pres-eyebrow">{data.eyebrow}</div>
       <h2 className="pres-slide-title">{data.title}</h2>
       {data.subtitle && <p className="pres-slide-subtitle"><RichText text={data.subtitle} /></p>}
+      {data.paramNotes && (
+        <div className="pres-param-notes">
+          {data.paramNotes.map((p, i) => (
+            <div key={i} className="pres-param-note">
+              <span className="pres-param-term">{p.term}</span>
+              <span className="pres-param-def">{p.def}</span>
+            </div>
+          ))}
+        </div>
+      )}
       {data.note && <div className="pres-table-note">{data.note}</div>}
       <div className="pres-table-wrap">
         <table className="pres-table">

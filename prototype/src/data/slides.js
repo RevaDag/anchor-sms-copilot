@@ -250,6 +250,12 @@ export const SLIDES = [
     eyebrow: 'Feature Prioritization · RICE Scoring',
     title: 'What ships first — and why',
     subtitle: 'RICE = Reach × Impact × Confidence ÷ Effort. Higher score = ship first.',
+    paramNotes: [
+      { term: 'Reach', def: 'How many active Anchor users will this touch in the first quarter? Scored 1–10.' },
+      { term: 'Impact', def: 'How much does it move the needle per user? 1 = Medium, 2 = High, 3 = Massive.' },
+      { term: 'Confidence', def: 'How sure am I about Reach and Impact? Based on user evidence and technical clarity.' },
+      { term: 'Effort', def: 'Estimated person-months of engineering work to ship production-ready.' },
+    ],
     headers: ['Feature', 'Reach', 'Impact', 'Confidence', 'Effort', 'RICE Score', 'Priority'],
     highlightCol: 5,
     rows: [

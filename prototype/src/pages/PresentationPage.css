@@ -592,6 +592,41 @@
 }
 
 /* ══════════════════════════════════════
+   PARAM NOTES (RICE legend)
+══════════════════════════════════════ */
+.pres-param-notes {
+  display: flex;
+  gap: 6px 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 10px 16px;
+  background: var(--pres-card-bg);
+  border: 1px solid var(--pres-border);
+  border-radius: 10px;
+  max-width: 1100px;
+  width: 100%;
+}
+.pres-param-note {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: clamp(11px, 1vw, 13px);
+}
+.pres-param-term {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pres-blue);
+  white-space: nowrap;
+  font-size: 11px;
+}
+.pres-param-def {
+  color: var(--pres-muted);
+  line-height: 1.4;
+}
+
+/* ══════════════════════════════════════
    TABLE
 ══════════════════════════════════════ */
 .pres-table-disclaimer {
